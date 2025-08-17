@@ -15,13 +15,11 @@ Place your images here for the website carousel.
    "images": [
      {
        "url": "/images/frederick-photo.jpg",
-       "alt": "Frederick's Photo",
-       "placeholder": "👨‍💻"
+       "alt": "Frederick's Photo"
      },
      {
        "url": "/images/frederick-speaking.jpg", 
-       "alt": "Frederick Speaking",
-       "placeholder": "🎤"
+       "alt": "Frederick Speaking"
      }
    ]
    ```

@@ -38,7 +38,7 @@ export default async function handler(req, res) {
     // Send email using Resend
     console.log('Attempting to send email via Resend...');
     const emailData = {
-      from: 'Frederick Talks <onboarding@resend.dev>', // You can use this default for testing
+      from: 'Frederick Talks <noreply@edl.dk>', // Using your verified domain
       to: ['fa@edl.dk'], // Replace this with your actual email address
       subject: `New Contact Form Submission${selectedTalk ? ` - ${selectedTalk}` : ''}`,
       html: `

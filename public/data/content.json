@@ -113,18 +113,15 @@
   "images": [
     {
       "url": "/images/frederick-webinar.jpg",
-      "alt": "Frederick’s facilitating a webinar.",
-      "placeholder": "👨‍💻"
+      "alt": "Frederick's facilitating a webinar."
     },
     {
       "url": "/images/frederick-library.jpg",
-      "alt": "Frederick in a library.",
-      "placeholder": "🎤"
+      "alt": "Frederick in a library."
     },
     {
       "url": "/images/frederick-podcast.jpg",
-      "alt": "Frederick hosting a podcast episode.",
-      "placeholder": "🎨"
+      "alt": "Frederick hosting a podcast episode."
     }
   ]
 } 

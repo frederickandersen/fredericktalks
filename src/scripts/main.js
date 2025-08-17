@@ -495,9 +495,7 @@ Alpine.data('imageCarousel', () => ({
   
   init() {
     // Load images from content (might be empty initially)
-    this.images = siteContent.images || [
-      { url: '', alt: 'Frederick\'s Photo', placeholder: '👨‍💻' }
-    ]
+    this.images = siteContent.images || []
     
     // Listen for content loaded event
     window.addEventListener('contentLoaded', (event) => {

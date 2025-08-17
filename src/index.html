@@ -80,13 +80,21 @@
              :style="`transform: translateX(-${currentIndex * 100}%)`">
           <!-- Image slides will be populated by JavaScript -->
           <template x-for="(image, index) in images" :key="index">
-            <div class="w-full h-full flex-shrink-0 bg-cover bg-center flex items-center justify-center"
-                 :style="image.url ? `background-image: url('${image.url}')` : ''"
-                 x-init="console.log('Image loaded:', image)">
-              <div x-show="!image.url" class="text-center text-gray-500">
-                <div class="text-6xl mb-4" x-text="image.placeholder"></div>
-                <p class="text-sm" x-text="image.alt"></p>
+            <div class="w-full h-full flex-shrink-0 bg-cover bg-center flex items-center justify-center relative"
+                 x-data="{ imageLoaded: false }"
+                 :style="imageLoaded ? `background-image: url('${image.url}')` : ''">
+              
+              <!-- Loading spinner -->
+              <div x-show="!imageLoaded" class="flex items-center justify-center">
+                <div class="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent opacity-60"></div>
               </div>
+              
+              <!-- Hidden image to detect load completion -->
+              <img :src="image.url" 
+                   :alt="image.alt"
+                   @load="imageLoaded = true"
+                   @error="imageLoaded = true"
+                   class="hidden">
             </div>
           </template>
         </div>
