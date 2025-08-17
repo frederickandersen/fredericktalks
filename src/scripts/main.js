@@ -59,6 +59,13 @@ function populateContent() {
   setRichText('[data-content="hero.intro.text2"]', siteContent.hero?.intro?.text2)
   setText('[data-content="hero.intro.text3"]', siteContent.hero?.intro?.text3)
   
+  // Populate availability section
+  setText('[data-content="hero.availability.text"]', siteContent.hero?.availability?.text)
+  const availabilityIcon = document.querySelector('#availability-icon')
+  if (availabilityIcon && siteContent.hero?.availability?.icon) {
+    availabilityIcon.innerHTML = siteContent.hero.availability.icon
+  }
+  
   // Populate talks section
   const talksContainer = document.querySelector('#talks-container')
   if (talksContainer && siteContent.talks) {
@@ -303,6 +310,16 @@ Alpine.data('contactModal', () => ({
         })
       })
 
+      console.log('Response status:', response.status)
+      console.log('Response headers:', response.headers)
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type')
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error('Response is not JSON:', response)
+        throw new Error(`Server returned ${response.status}: ${response.statusText}`)
+      }
+
       const result = await response.json()
 
       if (!response.ok) {
@@ -329,7 +346,7 @@ Alpine.data('contactModal', () => ({
       this.submitting = false
       
       // Show error message to user
-      alert('Sorry, there was an error sending your message. Please try again or contact me directly.')
+      alert(`Sorry, there was an error sending your message: ${error.message}. Please try again or contact me directly.`)
     }
   }
 }))
