@@ -59,19 +59,14 @@ function populateContent() {
   setRichText('[data-content="hero.intro.text2"]', siteContent.hero?.intro?.text2)
   setText('[data-content="hero.intro.text3"]', siteContent.hero?.intro?.text3)
   
-  // Populate availability section
-  setText('[data-content="hero.availability.text"]', siteContent.hero?.availability?.text)
-  const availabilityIcon = document.querySelector('#availability-icon')
-  if (availabilityIcon && siteContent.hero?.availability?.icon) {
-    availabilityIcon.innerHTML = siteContent.hero.availability.icon
-  }
+
   
   // Populate talks section
   const talksContainer = document.querySelector('#talks-container')
   if (talksContainer && siteContent.talks) {
     talksContainer.innerHTML = siteContent.talks.map(talk => `
-      <section class="px-10 py-10 talk-section">
-        <div class="max-w-content space-y-14">
+      <section class="px-10 pt-10 pb-16 md:pb-24 talk-section">
+        <div class="max-w-content space-y-8">
           <div class="space-y-4">
             <!-- Talk Header -->
             <div class="flex items-center gap-2.5">
