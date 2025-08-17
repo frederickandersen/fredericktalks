@@ -92,7 +92,7 @@ function populateContent() {
                     data-tooltip="${tag.tooltip || ''}"
                     ${tag.tooltipIcon ? `data-tooltip-icon="${tag.tooltipIcon.replace(/"/g, '&quot;')}"` : ''}>${tag.text}
                 <!-- Tooltip -->
-                <div x-show="show" 
+                <div x-show="show || false" 
                      x-ref="tooltip"
                      x-transition:enter="tooltip-enter" 
                      x-transition:enter-start="tooltip-enter" 
@@ -101,10 +101,10 @@ function populateContent() {
                      x-transition:leave-start="tooltip-leave" 
                      x-transition:leave-end="tooltip-leave-to"
                      class="custom-tooltip tooltip-center"
-                     :style="'left: ' + position.x + 'px; top: ' + position.y + 'px;'">
+                     :style="'left: ' + (position?.x || 0) + 'px; top: ' + (position?.y || 0) + 'px;'">
                   <div class="flex flex-col items-start gap-2">
-                    <div x-show="icon" x-html="icon" class="flex-shrink-0"></div>
-                    <span x-text="content" class="text-left"></span>
+                    <div x-show="icon || false" x-html="icon || ''" class="flex-shrink-0"></div>
+                    <span x-text="content || ''" class="text-left"></span>
                   </div>
                 </div>
               </span>
