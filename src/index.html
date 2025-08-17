@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frederick Talks</title>
+  <meta name="description" content="Frederick talks design through a technical, commercial, and practical lens.">
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+</head>
+<body class="bg-gray-50 text-black antialiased">
+    <!-- Main Split Layout -->
+  <div class="flex flex-col lg:flex-row min-h-screen bg-gray-50">
+    
+    <!-- Left Content Container -->
+    <div class="flex-1 lg:max-w-container w-full overflow-y-auto">
+      
+      <!-- Hero/Intro Section -->
+      <section class="px-10 pt-10 pb-32 pr-10 lg:pr-40 talk-section">
+        <div class="max-w-content space-y-8">
+          <p class="text-body text-black" data-content="hero.intro.text1">
+            Frederick talks design through a technical, commercial, and practical lens.
+          </p>
+          <p class="text-body text-black" data-content="hero.intro.text2">
+            He's a design studio founder. He works with technical product teams to build critical, AI-driven design systems.
+          </p>
+          <!-- <p class="text-body text-black" data-content="hero.intro.text3">
+            He's not into theory. He's into software design that works, scales, and sells.
+          </p> -->
+        </div>
+      </section>
+      
+      <!-- Talks Section -->
+      <div id="talks-container">
+        <!-- Talks will be populated by JavaScript -->
+      </div>
+      
+      <!-- Footer Section -->
+      <footer class="px-10 pt-10 pb-10 pr-10 lg:pr-40 border-t border-gray-100">
+        <div class="max-w-content">
+          <div id="footer-links-container" class="flex gap-5 items-start">
+            <!-- Footer links will be populated by JavaScript -->
+          </div>
+        </div>
+      </footer>
+      
+    </div>
+    
+    <!-- Right Image Container - Fixed/Sticky -->
+    <div class="flex-1 lg:h-screen lg:sticky lg:top-0 bg-gray-50 order-first lg:order-last">
+      <div class="h-64 lg:h-full relative overflow-hidden" x-data="imageCarousel">
+        <!-- Image Carousel Container -->
+        <div class="absolute inset-0 flex" 
+             :style="`transform: translateX(-${currentIndex * 100}%)`">
+          <!-- Image slides will be populated by JavaScript -->
+          <template x-for="(image, index) in images" :key="index">
+            <div class="w-full h-full flex-shrink-0 bg-cover bg-center flex items-center justify-center"
+                 :style="image.url ? `background-image: url('${image.url}')` : ''"
+                 x-init="console.log('Image loaded:', image)">
+              <div x-show="!image.url" class="text-center text-gray-500">
+                <div class="text-6xl mb-4" x-text="image.placeholder"></div>
+                <p class="text-sm" x-text="image.alt"></p>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+  <!-- Contact Modal -->
+  <div x-data="contactModal" x-cloak>
+    <!-- Modal -->
+    <div 
+      x-show="$store.contactModal.open" 
+      x-transition:enter="transition-all ease-out duration-300"
+      x-transition:enter-start="opacity-0"
+      x-transition:enter-end="opacity-100"
+      x-transition:leave="transition-all ease-in duration-200"
+      x-transition:leave-start="opacity-100"
+      x-transition:leave-end="opacity-0"
+      class="modal-container"
+      @click="if (!submitting && !success) closeModal()"
+    >
+      <div class="modal-content" @click.stop>
+        <!-- Modal Content -->
+        <div class="p-10 space-y-10">
+          <!-- Header -->
+          <div class="space-y-8">
+            <!-- Icon -->
+            <div class="w-14 h-14 flex items-center justify-center" id="modal-icon">
+              <!-- Icon will be populated by JavaScript -->
+            </div>
+            
+            <!-- Heading -->
+            <div class="space-y-5">
+              <div class="space-y-3">
+                <h3 class="font-arial text-[28px] leading-[1.3] text-black" id="modal-title">
+                  <!-- Title will be populated by JavaScript -->
+                </h3>
+                <p class="font-times text-[24px] leading-[1.3] text-black" id="modal-description">
+                  <!-- Description will be populated by JavaScript -->
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <form @submit="submitForm($event)" class="space-y-0">
+            <!-- Hidden field for talk selection -->
+            <input type="hidden" name="selectedTalk" id="selectedTalk" value="">
+            
+            <!-- Name Field -->
+            <div class="relative">
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required
+                placeholder="Name"
+                :disabled="submitting || success"
+                :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''"
+                class="w-full h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-times text-[20px] text-gray-600 placeholder-gray-600"
+                style="box-shadow: inset 0 0 0 1px #D1D5DB;"
+                onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';"
+                onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"
+              >
+            </div>
+            
+            <!-- Email Field -->
+            <div class="relative" style="margin-top: 12px;">
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required
+                placeholder="Work e-mail"
+                :disabled="submitting || success"
+                :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''"
+                class="w-full h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-times text-[20px] text-gray-600 placeholder-gray-600"
+                style="box-shadow: inset 0 0 0 1px #D1D5DB;"
+                onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';"
+                onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"
+              >
+            </div>
+            
+            <!-- Phone Field -->
+            <div class="relative" style="margin-top: 12px;">
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="Phone"
+                :disabled="submitting || success"
+                :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''"
+                class="w-full h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-times text-[20px] text-gray-600 placeholder-gray-600"
+                style="box-shadow: inset 0 0 0 1px #D1D5DB;"
+                onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';"
+                onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"
+              >
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" 
+                    :disabled="submitting || success"
+                    :class="submitting || success ? 'bg-primary-600' : 'bg-primary-500 hover:bg-primary-600'"
+                    class="w-full h-12 rounded-md flex items-center justify-center gap-2 px-6 transition-colors" 
+                    style="margin-top: 20px;">
+              
+              <!-- Default state -->
+              <span x-show="!submitting && !success" class="font-times text-[20px] leading-[1.4] text-white">Send request</span>
+              <div x-show="!submitting && !success" class="w-8 h-8 flex items-center justify-center transform rotate-180 scale-y-[-1]" id="submit-icon">
+                <!-- Submit icon will be populated by JavaScript -->
+              </div>
+              
+              <!-- Submitting state with spinner -->
+              <div x-show="submitting" class="animate-spin rounded-full h-5 w-5 border-2 border-white border-t-transparent"></div>
+              
+              <!-- Success state -->
+              <span x-show="success" class="font-times text-[20px] leading-[1.4] text-white">Success!</span>
+            </button>
+          </form>
+
+          <!-- Subtitle moved below submit button -->
+          <div style="margin-top: 20px;">
+            <p class="font-times text-[20px] leading-[1.3] text-primary-500 max-w-[400px]">
+              <span class="relative cursor-help underline decoration-dotted underline-offset-2" 
+                    id="modal-subtitle-main" 
+                    x-data="tooltip" 
+                    data-tooltip="Next step is just figuring out the details.">
+                No commitment yet.
+                <!-- Tooltip -->
+                <div x-show="show" 
+                     x-ref="tooltip"
+                     x-transition:enter="tooltip-enter" 
+                     x-transition:enter-start="tooltip-enter" 
+                     x-transition:enter-end="tooltip-enter-to"
+                     x-transition:leave="tooltip-leave" 
+                     x-transition:leave-start="tooltip-leave" 
+                     x-transition:leave-end="tooltip-leave-to"
+                     class="custom-tooltip tooltip-center"
+                     :style="'left: ' + position.x + 'px; top: ' + position.y + 'px;'">
+                  <div class="flex flex-col items-start gap-2">
+                    <div x-show="icon" x-html="icon" class="flex-shrink-0"></div>
+                    <span x-text="content" class="text-left"></span>
+                  </div>
+                </div>
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/scripts/main.js"></script>
+  
+  <style>
+    [x-cloak] { display: none !important; }
+  </style>
+</body>
+</html> 
