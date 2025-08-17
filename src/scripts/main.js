@@ -433,9 +433,18 @@ Alpine.data('tooltip', () => ({
   },
   
   handleClickOutside(event) {
-    if (!this.$el.contains(event.target) && !this.$refs.tooltip?.contains(event.target)) {
-      this.hideTooltip()
+    // Don't hide immediately if the click is on the trigger element itself
+    if (this.$el.contains(event.target)) {
+      return
     }
+    
+    // Don't hide if the click is on the tooltip itself
+    if (this.$refs.tooltip?.contains(event.target)) {
+      return
+    }
+    
+    // Hide tooltip for clicks outside both the trigger and tooltip
+    this.hideTooltip()
   },
   
   handleKeyDown(event) {
@@ -515,6 +524,9 @@ Alpine.data('tooltip', () => ({
     this.updatePosition(event)
     this.show = true
     
+    // Cancel any scheduled hide on show
+    this.cancelScheduledHide()
+    
     // Update ARIA attributes
     this.$el.setAttribute('aria-expanded', 'true')
     
@@ -534,6 +546,9 @@ Alpine.data('tooltip', () => ({
   
   hideTooltip() {
     this.show = false
+    
+    // Cancel any scheduled hide
+    this.cancelScheduledHide()
     
     // Update ARIA attributes
     this.$el.setAttribute('aria-expanded', 'false')
@@ -555,6 +570,9 @@ Alpine.data('tooltip', () => ({
     const tooltipEl = this.$refs.tooltip
     
     if (!tooltipEl) return
+    
+    // Ensure we have dimensions calculated from the element bounds, not touch position
+    // This fixes the positioning issue on first touch
     
     // Get tooltip dimensions by temporarily showing it
     const originalDisplay = tooltipEl.style.display
@@ -642,6 +660,17 @@ Alpine.data('tooltip', () => ({
   },
   
   destroy() {
+    // Clean up all timeouts
+    if (this.touchTimeout) {
+      clearTimeout(this.touchTimeout)
+      this.touchTimeout = null
+    }
+    
+    if (this.hideTimeout) {
+      clearTimeout(this.hideTimeout)
+      this.hideTimeout = null
+    }
+    
     // Clean up all event listeners
     this.$el.removeEventListener('mouseenter', this.handleMouseEnter)
     this.$el.removeEventListener('mouseleave', this.handleMouseLeave)
