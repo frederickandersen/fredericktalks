@@ -37,7 +37,7 @@
   }
   
   .modal-content {
-    @apply bg-white shadow-2xl max-w-[544px] w-full transform transition-all duration-300;
+    @apply bg-white shadow-2xl max-w-[544px] w-full transform transition-all duration-300 relative;
   }
   
   .btn-primary {
@@ -50,7 +50,7 @@
   
   .talk-title {
     font-family: 'Arial', 'Helvetica', sans-serif;
-    @apply text-body text-black flex-1;
+    @apply text-body md:text-body-md text-black flex-1;
   }
   
   /* Talk title link styling */
@@ -85,12 +85,18 @@
   
   /* Custom Tooltip Styles */
   .custom-tooltip {
-    @apply fixed z-[60] px-4 py-3 text-[20px] font-times text-white bg-primary-500 pointer-events-none;
-    max-width: 300px;
+    @apply fixed z-[60] px-3 md:px-4 py-2 md:py-3 text-[18px] md:text-[20px] font-times text-white bg-primary-500 pointer-events-none;
+    max-width: 280px;
     word-wrap: break-word;
     white-space: normal;
     line-height: 1.2;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+  
+  @media (min-width: 768px) {
+    .custom-tooltip {
+      max-width: 300px;
+    }
   }
   
   /* Center aligned tooltip (default) */

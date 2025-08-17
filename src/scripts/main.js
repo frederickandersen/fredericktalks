@@ -65,29 +65,29 @@ function populateContent() {
   const talksContainer = document.querySelector('#talks-container')
   if (talksContainer && siteContent.talks) {
     talksContainer.innerHTML = siteContent.talks.map(talk => `
-      <section class="px-10 pt-10 pb-16 md:pb-24 talk-section">
-        <div class="max-w-content space-y-8">
-          <div class="space-y-4">
+      <section class="px-6 md:px-10 pt-6 md:pt-10 pb-16 md:pb-20 talk-section">
+        <div class="max-w-content space-y-6 md:space-y-8">
+          <div class="space-y-3 md:space-y-4">
             <!-- Talk Header -->
-            <div class="flex items-center gap-2.5">
-              <div class="w-8 h-8 rounded-full border border-primary-500 flex items-center justify-center">
-                <span class="font-arial text-[20px] leading-[1.1] text-primary-500 uppercase">${talk.id}</span>
+            <div class="flex items-center gap-2 md:gap-2.5">
+              <div class="w-7 md:w-8 h-7 md:h-8 rounded-full border border-primary-500 flex items-center justify-center">
+                <span class="font-arial text-[18px] md:text-[20px] leading-[1.1] text-primary-500 uppercase">${talk.id}</span>
               </div>
               <h2 class="flex-1 min-w-0">
-                <a href="#" class="talk-title-link font-times text-[28px] leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none cursor-pointer talk-action-btn" 
+                <a href="#" class="talk-title-link font-times text-body md:text-body-md leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none cursor-pointer talk-action-btn" 
                    data-talk-id="${talk.id}"
                    data-action="primary">${talk.title}</a>
               </h2>
             </div>
             
             <!-- Talk Description -->
-            <p class="font-times text-[28px] leading-[1.3] text-black">${talk.description}</p>
+            <p class="font-times text-body md:text-body-md leading-[1.3] text-black">${talk.description}</p>
           </div>
           
           <!-- Tags -->
-          <div class="flex gap-4 items-center">
+          <div class="flex gap-3 md:gap-4 items-center">
             ${talk.tags ? talk.tags.map(tag => `
-              <span class="relative font-arial text-[18px] leading-[1.4] text-gray-500 underline decoration-dotted underline-offset-[4px] cursor-help" 
+              <span class="relative font-arial text-[16px] md:text-[18px] leading-[1.4] text-gray-500 underline decoration-dotted underline-offset-[4px] cursor-help" 
                     x-data="tooltip" 
                     data-tooltip="${tag.tooltip || ''}"
                     ${tag.tooltipIcon ? `data-tooltip-icon="${tag.tooltipIcon.replace(/"/g, '&quot;')}"` : ''}>${tag.text}

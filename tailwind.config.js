@@ -24,8 +24,10 @@ export default {
         'content': '520px',
       },
       fontSize: {
-        'body': ['28px', { lineHeight: '1.3' }],
-        'number': ['24px', { lineHeight: '1.1' }],
+        'body': ['24px', { lineHeight: '1.3' }],
+        'body-md': ['28px', { lineHeight: '1.3' }],
+        'number': ['20px', { lineHeight: '1.1' }],
+        'number-md': ['24px', { lineHeight: '1.1' }],
       }
     },
   },
