@@ -92,7 +92,7 @@ function populateContent() {
                     data-tooltip="${tag.tooltip || ''}"
                     ${tag.tooltipIcon ? `data-tooltip-icon="${tag.tooltipIcon.replace(/"/g, '&quot;')}"` : ''}>${tag.text}
                 <!-- Tooltip -->
-                <div x-show="show || false" 
+                <div x-show="show" 
                      x-ref="tooltip"
                      x-transition:enter="tooltip-enter" 
                      x-transition:enter-start="tooltip-enter" 
@@ -100,11 +100,10 @@ function populateContent() {
                      x-transition:leave="tooltip-leave" 
                      x-transition:leave-start="tooltip-leave" 
                      x-transition:leave-end="tooltip-leave-to"
-                     class="custom-tooltip tooltip-center"
-                     :style="'left: ' + (position?.x || 0) + 'px; top: ' + (position?.y || 0) + 'px;'">
+                     class="custom-tooltip">
                   <div class="flex flex-col items-start gap-2">
-                    <div x-show="icon || false" x-html="icon || ''" class="flex-shrink-0"></div>
-                    <span x-text="content || ''" class="text-left"></span>
+                    <div x-show="icon" x-html="icon" class="flex-shrink-0"></div>
+                    <span x-text="content" class="text-left"></span>
                   </div>
                 </div>
               </span>
@@ -351,342 +350,137 @@ Alpine.data('tooltip', () => ({
   show: false,
   content: '',
   icon: '',
-  position: { x: 0, y: 0 },
-  alignment: 'center',
   isMobile: false,
-  touchStarted: false,
-  scrollHandler: null,
   
   init() {
+    // Get tooltip content from data attributes
+    this.content = this.$el.getAttribute('data-tooltip') || ''
+    this.icon = this.$el.getAttribute('data-tooltip-icon') || ''
+    
     // Detect if device is mobile
     this.isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0
     
-    // Bind methods to maintain context
-    this.handleMouseEnter = this.handleMouseEnter.bind(this)
-    this.handleMouseLeave = this.handleMouseLeave.bind(this)
-    this.handleMouseMove = this.handleMouseMove.bind(this)
-    this.handleTouchStart = this.handleTouchStart.bind(this)
-    this.handleTouchEnd = this.handleTouchEnd.bind(this)
-    this.handleClick = this.handleClick.bind(this)
-    this.handleScroll = this.handleScroll.bind(this)
-    this.handleClickOutside = this.handleClickOutside.bind(this)
-    this.handleKeyDown = this.handleKeyDown.bind(this)
-    
-    // Make element focusable for keyboard navigation and add ARIA attributes
+    // Make element focusable and add ARIA attributes
     if (!this.$el.hasAttribute('tabindex')) {
       this.$el.setAttribute('tabindex', '0')
     }
     this.$el.setAttribute('role', 'button')
-    this.$el.setAttribute('aria-describedby', this.$el.id || `tooltip-${Math.random().toString(36).substr(2, 9)}`)
     this.$el.setAttribute('aria-expanded', 'false')
     
-    // Add keyboard support for all devices
-    this.$el.addEventListener('keydown', this.handleKeyDown)
-    this.$el.addEventListener('focus', this.handleFocus.bind(this))
-    this.$el.addEventListener('blur', this.handleBlur.bind(this))
-    
     if (this.isMobile) {
-      // Mobile: use touch events and click
-      this.$el.addEventListener('touchstart', this.handleTouchStart, { passive: true })
-      this.$el.addEventListener('touchend', this.handleTouchEnd, { passive: true })
-      this.$el.addEventListener('click', this.handleClick)
+      // Mobile: use click/tap
+      this.$el.addEventListener('click', (e) => {
+        e.preventDefault()
+        this.toggleTooltip()
+      })
     } else {
-      // Desktop: use mouse events
-      this.$el.addEventListener('mouseenter', this.handleMouseEnter)
-      this.$el.addEventListener('mouseleave', this.handleMouseLeave)
-      this.$el.addEventListener('mousemove', this.handleMouseMove)
-    }
-  },
-  
-  handleTouchStart(event) {
-    this.touchStarted = true
-    // Prevent the click event from firing immediately
-    event.preventDefault()
-  },
-  
-  handleTouchEnd(event) {
-    if (this.touchStarted) {
-      // Simulate a click after touch
-      setTimeout(() => {
-        this.handleClick(event)
-      }, 10)
-    }
-    this.touchStarted = false
-  },
-  
-  handleClick(event) {
-    if (!this.isMobile) return
-    
-    event.preventDefault()
-    event.stopPropagation()
-    
-    const tooltipContent = this.$el.getAttribute('data-tooltip')
-    if (!tooltipContent) return
-    
-    if (this.show) {
-      // Hide tooltip if already shown
-      this.hideTooltip()
-    } else {
-      // Show tooltip
-      this.showTooltip(event)
-    }
-  },
-  
-  handleClickOutside(event) {
-    // Don't hide immediately if the click is on the trigger element itself
-    if (this.$el.contains(event.target)) {
-      return
-    }
-    
-    // Don't hide if the click is on the tooltip itself
-    if (this.$refs.tooltip?.contains(event.target)) {
-      return
-    }
-    
-    // Hide tooltip for clicks outside both the trigger and tooltip
-    this.hideTooltip()
-  },
-  
-  handleKeyDown(event) {
-    // Show tooltip on Enter or Space
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      const tooltipContent = this.$el.getAttribute('data-tooltip')
-      if (!tooltipContent) return
+      // Desktop: use hover
+      this.$el.addEventListener('mouseenter', () => {
+        this.showTooltip()
+      })
       
-      if (this.show) {
+      this.$el.addEventListener('mouseleave', () => {
         this.hideTooltip()
-      } else {
-        this.showTooltip(event)
+      })
+      
+      // Also support click for desktop
+      this.$el.addEventListener('click', (e) => {
+        e.preventDefault()
+        this.toggleTooltip()
+      })
+    }
+    
+    // Add keyboard support for all devices
+    this.$el.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault()
+        this.toggleTooltip()
+      } else if (e.key === 'Escape') {
+        this.hideTooltip()
       }
-    }
-    // Hide tooltip on Escape
-    else if (event.key === 'Escape') {
-      this.hideTooltip()
-    }
-  },
-  
-  handleFocus(event) {
-    // Show tooltip on focus for keyboard users
-    if (!this.isMobile) {
-      this.showTooltip(event)
-    }
-  },
-  
-  handleBlur() {
-    // Hide tooltip when element loses focus
-    if (!this.isMobile) {
-      this.hideTooltip()
-    }
-  },
-
-  handleMouseEnter(event) {
-    if (this.isMobile) return
+    })
     
-    console.log('Tooltip mouseenter triggered on:', this.$el)
-    const tooltipContent = this.$el.getAttribute('data-tooltip')
-    console.log('Tooltip content:', tooltipContent)
-    if (!tooltipContent) return
-    
-    this.showTooltip(event)
-  },
-  
-  handleMouseLeave() {
-    if (this.isMobile) return
-    this.hideTooltip()
-  },
-
-  handleMouseMove(event) {
-    if (this.isMobile) return
-    if (this.show) {
-      this.updatePosition(event)
-    }
-  },
-  
-  handleScroll() {
-    // Hide tooltip on scroll for mobile, update position for desktop
+    // Close tooltip when clicking outside (mobile only)
     if (this.isMobile) {
+      document.addEventListener('click', (e) => {
+        if (!this.$el.contains(e.target) && !this.$refs.tooltip?.contains(e.target)) {
+          this.hideTooltip()
+        }
+      })
+    }
+    
+    // Reposition tooltip on window resize
+    window.addEventListener('resize', () => {
+      if (this.show) {
+        this.positionTooltip()
+      }
+    })
+  },
+  
+  toggleTooltip() {
+    if (this.show) {
       this.hideTooltip()
-    } else if (this.show) {
-      // For desktop, we could update position, but hiding is often better UX
-      this.hideTooltip()
+    } else {
+      this.showTooltip()
     }
   },
   
-  showTooltip(event) {
-    const tooltipContent = this.$el.getAttribute('data-tooltip')
-    if (!tooltipContent) return
-    
-    const tooltipIcon = this.$el.getAttribute('data-tooltip-icon')
-    
-    this.content = tooltipContent
-    this.icon = tooltipIcon || ''
-    this.updatePosition(event)
+  showTooltip() {
     this.show = true
-    
-    // Cancel any scheduled hide on show
-    this.cancelScheduledHide()
-    
-    // Update ARIA attributes
     this.$el.setAttribute('aria-expanded', 'true')
     
-    // Add scroll listener when tooltip is shown
-    this.scrollHandler = this.handleScroll
-    window.addEventListener('scroll', this.scrollHandler, { passive: true })
-    
-    // Add click outside listener for mobile
-    if (this.isMobile) {
-      setTimeout(() => {
-        document.addEventListener('click', this.handleClickOutside)
-      }, 10)
-    }
-    
-    console.log('Tooltip should now show:', this.show)
+    // Position tooltip after it's rendered
+    this.$nextTick(() => {
+      this.positionTooltip()
+    })
   },
   
   hideTooltip() {
     this.show = false
-    
-    // Cancel any scheduled hide
-    this.cancelScheduledHide()
-    
-    // Update ARIA attributes
     this.$el.setAttribute('aria-expanded', 'false')
-    
-    // Remove scroll listener
-    if (this.scrollHandler) {
-      window.removeEventListener('scroll', this.scrollHandler)
-      this.scrollHandler = null
-    }
-    
-    // Remove click outside listener
-    if (this.isMobile) {
-      document.removeEventListener('click', this.handleClickOutside)
-    }
   },
-
-  updatePosition(event) {
-    const rect = this.$el.getBoundingClientRect()
-    const tooltipEl = this.$refs.tooltip
+  
+  positionTooltip() {
+    const tooltip = this.$refs.tooltip
+    if (!tooltip) return
     
-    if (!tooltipEl) return
-    
-    // Ensure we have dimensions calculated from the element bounds, not touch position
-    // This fixes the positioning issue on first touch
-    
-    // Get tooltip dimensions by temporarily showing it
-    const originalDisplay = tooltipEl.style.display
-    const originalVisibility = tooltipEl.style.visibility
-    tooltipEl.style.display = 'block'
-    tooltipEl.style.visibility = 'hidden'
-    tooltipEl.style.position = 'fixed'
-    tooltipEl.style.left = '0'
-    tooltipEl.style.top = '0'
-    
-    const tooltipWidth = tooltipEl.offsetWidth
-    const tooltipHeight = tooltipEl.offsetHeight
-    
-    // Restore original styles
-    tooltipEl.style.display = originalDisplay
-    tooltipEl.style.visibility = originalVisibility
-    
-    // Calculate positions
-    const elementCenterX = rect.left + rect.width / 2
+    const triggerRect = this.$el.getBoundingClientRect()
+    const tooltipRect = tooltip.getBoundingClientRect()
     const viewportWidth = window.innerWidth
     const viewportHeight = window.innerHeight
-    const padding = this.isMobile ? 20 : 16 // More padding on mobile
+    const padding = 16
     
-    let x, y, alignment
+    // Reset any previous positioning
+    tooltip.style.left = '50%'
+    tooltip.style.right = 'auto'
+    tooltip.style.top = 'calc(100% + 8px)'
+    tooltip.style.bottom = 'auto'
+    tooltip.style.transform = 'translateX(-50%)'
     
-    // Determine horizontal alignment based on available space
-    const spaceLeft = elementCenterX
-    const spaceRight = viewportWidth - elementCenterX
-    const halfTooltipWidth = tooltipWidth / 2
+    // Check if tooltip goes off the right edge
+    const tooltipLeft = triggerRect.left + triggerRect.width / 2 - tooltipRect.width / 2
+    const tooltipRight = tooltipLeft + tooltipRect.width
     
-    if (spaceLeft >= halfTooltipWidth + padding && spaceRight >= halfTooltipWidth + padding) {
-      // Enough space for center alignment
-      alignment = 'center'
-      x = elementCenterX
-    } else if (spaceLeft < halfTooltipWidth + padding) {
-      // Not enough space on left, align to left edge
-      alignment = 'left'
-      x = rect.left
-      // Ensure tooltip doesn't go off left edge
-      if (x < padding) {
-        x = padding
-      }
-    } else {
-      // Not enough space on right, align to right edge
-      alignment = 'right'
-      x = rect.right
-      // Ensure tooltip doesn't go off right edge
-      if (x + tooltipWidth > viewportWidth - padding) {
-        x = viewportWidth - padding
-      }
+    if (tooltipRight > viewportWidth - padding) {
+      // Position to align with right edge of trigger
+      tooltip.style.left = 'auto'
+      tooltip.style.right = '0'
+      tooltip.style.transform = 'none'
+    } else if (tooltipLeft < padding) {
+      // Position to align with left edge of trigger
+      tooltip.style.left = '0'
+      tooltip.style.transform = 'none'
     }
     
-    // Calculate vertical position - prefer above element
-    y = rect.top - tooltipHeight - (this.isMobile ? 12 : 8)
+    // Check if tooltip goes off the bottom edge
+    const tooltipTop = triggerRect.bottom + 8
+    const tooltipBottom = tooltipTop + tooltipRect.height
     
-    // Vertical adjustment - if not enough space above, show below
-    if (y < padding) {
-      y = rect.bottom + (this.isMobile ? 12 : 8)
-      
-      // If still not enough space below, position within viewport
-      if (y + tooltipHeight > viewportHeight - padding) {
-        y = viewportHeight - tooltipHeight - padding
-      }
+    if (tooltipBottom > viewportHeight - padding) {
+      // Position above the trigger instead
+      tooltip.style.top = 'auto'
+      tooltip.style.bottom = 'calc(100% + 8px)'
     }
-    
-    // Ensure tooltip stays within viewport bounds
-    if (y < padding) {
-      y = padding
-    }
-    
-    // Update tooltip alignment class
-    this.updateTooltipAlignment(tooltipEl, alignment)
-    
-    console.log(`Tooltip alignment: ${alignment}, position: (${x}, ${y}), element center: ${elementCenterX}`)
-    
-    this.position = { x, y }
-    this.alignment = alignment
-  },
-  
-  updateTooltipAlignment(tooltipEl, alignment) {
-    // Remove existing alignment classes
-    tooltipEl.classList.remove('tooltip-center', 'tooltip-left', 'tooltip-right')
-    // Add new alignment class
-    tooltipEl.classList.add(`tooltip-${alignment}`)
-  },
-  
-  destroy() {
-    // Clean up all timeouts
-    if (this.touchTimeout) {
-      clearTimeout(this.touchTimeout)
-      this.touchTimeout = null
-    }
-    
-    if (this.hideTimeout) {
-      clearTimeout(this.hideTimeout)
-      this.hideTimeout = null
-    }
-    
-    // Clean up all event listeners
-    this.$el.removeEventListener('mouseenter', this.handleMouseEnter)
-    this.$el.removeEventListener('mouseleave', this.handleMouseLeave)
-    this.$el.removeEventListener('mousemove', this.handleMouseMove)
-    this.$el.removeEventListener('touchstart', this.handleTouchStart)
-    this.$el.removeEventListener('touchend', this.handleTouchEnd)
-    this.$el.removeEventListener('click', this.handleClick)
-    this.$el.removeEventListener('keydown', this.handleKeyDown)
-    this.$el.removeEventListener('focus', this.handleFocus)
-    this.$el.removeEventListener('blur', this.handleBlur)
-    
-    if (this.scrollHandler) {
-      window.removeEventListener('scroll', this.scrollHandler)
-    }
-    
-    document.removeEventListener('click', this.handleClickOutside)
   }
 }))
 
