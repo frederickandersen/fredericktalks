@@ -17,15 +17,27 @@ export default async function handler(req, res) {
   }
 
   try {
+    console.log('API endpoint called with method:', req.method);
+    console.log('Request body:', req.body);
+    console.log('Environment check - RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
+
     const { name, email, phone, selectedTalk } = req.body;
 
     // Validate required fields
     if (!name || !email) {
+      console.log('Validation failed - missing name or email');
       return res.status(400).json({ error: 'Name and email are required' });
     }
 
+    // Check if Resend API key is available
+    if (!process.env.RESEND_API_KEY) {
+      console.error('RESEND_API_KEY environment variable is not set');
+      return res.status(500).json({ error: 'Server configuration error: Missing API key' });
+    }
+
     // Send email using Resend
-    const { data, error } = await resend.emails.send({
+    console.log('Attempting to send email via Resend...');
+    const emailData = {
       from: 'Frederick Talks <onboarding@resend.dev>', // You can use this default for testing
       to: ['fa@edl.dk'], // Replace this with your actual email address
       subject: `New Contact Form Submission${selectedTalk ? ` - ${selectedTalk}` : ''}`,
@@ -48,16 +60,35 @@ export default async function handler(req, res) {
           </div>
         </div>
       `,
+    };
+    
+    console.log('Email data prepared:', { 
+      from: emailData.from, 
+      to: emailData.to, 
+      subject: emailData.subject 
     });
 
+    const { data, error } = await resend.emails.send(emailData);
+
     if (error) {
-      console.error('Resend error:', error);
-      return res.status(500).json({ error: 'Failed to send email' });
+      console.error('Resend error details:', error);
+      return res.status(500).json({ 
+        error: 'Failed to send email', 
+        details: error.message || 'Unknown error'
+      });
     }
 
+    console.log('Email sent successfully:', data);
     return res.status(200).json({ success: true, messageId: data.id });
   } catch (error) {
-    console.error('Server error:', error);
-    return res.status(500).json({ error: 'Internal server error' });
+    console.error('Server error details:', {
+      message: error.message,
+      stack: error.stack,
+      name: error.name
+    });
+    return res.status(500).json({ 
+      error: 'Internal server error',
+      details: error.message
+    });
   }
 } 

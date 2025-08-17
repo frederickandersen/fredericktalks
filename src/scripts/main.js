@@ -372,7 +372,9 @@ Alpine.data('tooltip', () => ({
   },
   
   handleMouseEnter(event) {
+    console.log('Tooltip mouseenter triggered on:', this.$el)
     const tooltipContent = this.$el.getAttribute('data-tooltip')
+    console.log('Tooltip content:', tooltipContent)
     if (!tooltipContent) return
     
     const tooltipIcon = this.$el.getAttribute('data-tooltip-icon')
@@ -381,6 +383,7 @@ Alpine.data('tooltip', () => ({
     this.icon = tooltipIcon || ''
     this.updatePosition(event)
     this.show = true
+    console.log('Tooltip should now show:', this.show)
   },
   
   handleMouseLeave() {
@@ -565,5 +568,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Debug: Check if store is available
   setTimeout(() => {
     console.log('Alpine store check:', Alpine.store('contactModal'))
+    
+    // Force Alpine to process any missed elements
+    const availabilityTooltip = document.querySelector('[data-content="hero.availability.text"]')
+    if (availabilityTooltip) {
+      console.log('Found availability tooltip element:', availabilityTooltip)
+      console.log('Has x-data:', availabilityTooltip.getAttribute('x-data'))
+      console.log('Has data-tooltip:', availabilityTooltip.getAttribute('data-tooltip'))
+    }
   }, 100)
 }) 
