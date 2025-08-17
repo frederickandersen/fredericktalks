@@ -353,23 +353,159 @@ Alpine.data('tooltip', () => ({
   icon: '',
   position: { x: 0, y: 0 },
   alignment: 'center',
+  isMobile: false,
+  touchStarted: false,
+  scrollHandler: null,
   
   init() {
+    // Detect if device is mobile
+    this.isMobile = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    
     // Bind methods to maintain context
     this.handleMouseEnter = this.handleMouseEnter.bind(this)
     this.handleMouseLeave = this.handleMouseLeave.bind(this)
     this.handleMouseMove = this.handleMouseMove.bind(this)
+    this.handleTouchStart = this.handleTouchStart.bind(this)
+    this.handleTouchEnd = this.handleTouchEnd.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+    this.handleScroll = this.handleScroll.bind(this)
+    this.handleClickOutside = this.handleClickOutside.bind(this)
+    this.handleKeyDown = this.handleKeyDown.bind(this)
     
-    // Add event listeners
-    this.$el.addEventListener('mouseenter', this.handleMouseEnter)
-    this.$el.addEventListener('mouseleave', this.handleMouseLeave)
-    this.$el.addEventListener('mousemove', this.handleMouseMove)
+    // Make element focusable for keyboard navigation and add ARIA attributes
+    if (!this.$el.hasAttribute('tabindex')) {
+      this.$el.setAttribute('tabindex', '0')
+    }
+    this.$el.setAttribute('role', 'button')
+    this.$el.setAttribute('aria-describedby', this.$el.id || `tooltip-${Math.random().toString(36).substr(2, 9)}`)
+    this.$el.setAttribute('aria-expanded', 'false')
+    
+    // Add keyboard support for all devices
+    this.$el.addEventListener('keydown', this.handleKeyDown)
+    this.$el.addEventListener('focus', this.handleFocus.bind(this))
+    this.$el.addEventListener('blur', this.handleBlur.bind(this))
+    
+    if (this.isMobile) {
+      // Mobile: use touch events and click
+      this.$el.addEventListener('touchstart', this.handleTouchStart, { passive: true })
+      this.$el.addEventListener('touchend', this.handleTouchEnd, { passive: true })
+      this.$el.addEventListener('click', this.handleClick)
+    } else {
+      // Desktop: use mouse events
+      this.$el.addEventListener('mouseenter', this.handleMouseEnter)
+      this.$el.addEventListener('mouseleave', this.handleMouseLeave)
+      this.$el.addEventListener('mousemove', this.handleMouseMove)
+    }
   },
   
+  handleTouchStart(event) {
+    this.touchStarted = true
+    // Prevent the click event from firing immediately
+    event.preventDefault()
+  },
+  
+  handleTouchEnd(event) {
+    if (this.touchStarted) {
+      // Simulate a click after touch
+      setTimeout(() => {
+        this.handleClick(event)
+      }, 10)
+    }
+    this.touchStarted = false
+  },
+  
+  handleClick(event) {
+    if (!this.isMobile) return
+    
+    event.preventDefault()
+    event.stopPropagation()
+    
+    const tooltipContent = this.$el.getAttribute('data-tooltip')
+    if (!tooltipContent) return
+    
+    if (this.show) {
+      // Hide tooltip if already shown
+      this.hideTooltip()
+    } else {
+      // Show tooltip
+      this.showTooltip(event)
+    }
+  },
+  
+  handleClickOutside(event) {
+    if (!this.$el.contains(event.target) && !this.$refs.tooltip?.contains(event.target)) {
+      this.hideTooltip()
+    }
+  },
+  
+  handleKeyDown(event) {
+    // Show tooltip on Enter or Space
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      const tooltipContent = this.$el.getAttribute('data-tooltip')
+      if (!tooltipContent) return
+      
+      if (this.show) {
+        this.hideTooltip()
+      } else {
+        this.showTooltip(event)
+      }
+    }
+    // Hide tooltip on Escape
+    else if (event.key === 'Escape') {
+      this.hideTooltip()
+    }
+  },
+  
+  handleFocus(event) {
+    // Show tooltip on focus for keyboard users
+    if (!this.isMobile) {
+      this.showTooltip(event)
+    }
+  },
+  
+  handleBlur() {
+    // Hide tooltip when element loses focus
+    if (!this.isMobile) {
+      this.hideTooltip()
+    }
+  },
+
   handleMouseEnter(event) {
+    if (this.isMobile) return
+    
     console.log('Tooltip mouseenter triggered on:', this.$el)
     const tooltipContent = this.$el.getAttribute('data-tooltip')
     console.log('Tooltip content:', tooltipContent)
+    if (!tooltipContent) return
+    
+    this.showTooltip(event)
+  },
+  
+  handleMouseLeave() {
+    if (this.isMobile) return
+    this.hideTooltip()
+  },
+
+  handleMouseMove(event) {
+    if (this.isMobile) return
+    if (this.show) {
+      this.updatePosition(event)
+    }
+  },
+  
+  handleScroll() {
+    // Hide tooltip on scroll for mobile, update position for desktop
+    if (this.isMobile) {
+      this.hideTooltip()
+    } else if (this.show) {
+      // For desktop, we could update position, but hiding is often better UX
+      this.hideTooltip()
+    }
+  },
+  
+  showTooltip(event) {
+    const tooltipContent = this.$el.getAttribute('data-tooltip')
     if (!tooltipContent) return
     
     const tooltipIcon = this.$el.getAttribute('data-tooltip-icon')
@@ -378,19 +514,42 @@ Alpine.data('tooltip', () => ({
     this.icon = tooltipIcon || ''
     this.updatePosition(event)
     this.show = true
+    
+    // Update ARIA attributes
+    this.$el.setAttribute('aria-expanded', 'true')
+    
+    // Add scroll listener when tooltip is shown
+    this.scrollHandler = this.handleScroll
+    window.addEventListener('scroll', this.scrollHandler, { passive: true })
+    
+    // Add click outside listener for mobile
+    if (this.isMobile) {
+      setTimeout(() => {
+        document.addEventListener('click', this.handleClickOutside)
+      }, 10)
+    }
+    
     console.log('Tooltip should now show:', this.show)
   },
   
-  handleMouseLeave() {
+  hideTooltip() {
     this.show = false
-  },
-  
-  handleMouseMove(event) {
-    if (this.show) {
-      this.updatePosition(event)
+    
+    // Update ARIA attributes
+    this.$el.setAttribute('aria-expanded', 'false')
+    
+    // Remove scroll listener
+    if (this.scrollHandler) {
+      window.removeEventListener('scroll', this.scrollHandler)
+      this.scrollHandler = null
+    }
+    
+    // Remove click outside listener
+    if (this.isMobile) {
+      document.removeEventListener('click', this.handleClickOutside)
     }
   },
-  
+
   updatePosition(event) {
     const rect = this.$el.getBoundingClientRect()
     const tooltipEl = this.$refs.tooltip
@@ -416,9 +575,10 @@ Alpine.data('tooltip', () => ({
     // Calculate positions
     const elementCenterX = rect.left + rect.width / 2
     const viewportWidth = window.innerWidth
-    const padding = 16 // Distance from viewport edge
+    const viewportHeight = window.innerHeight
+    const padding = this.isMobile ? 20 : 16 // More padding on mobile
     
-    let x, alignment
+    let x, y, alignment
     
     // Determine horizontal alignment based on available space
     const spaceLeft = elementCenterX
@@ -447,12 +607,22 @@ Alpine.data('tooltip', () => ({
       }
     }
     
-    // Calculate vertical position
-    let y = rect.top - tooltipHeight - 8 // 8px gap above element
+    // Calculate vertical position - prefer above element
+    y = rect.top - tooltipHeight - (this.isMobile ? 12 : 8)
     
     // Vertical adjustment - if not enough space above, show below
     if (y < padding) {
-      y = rect.bottom + 8
+      y = rect.bottom + (this.isMobile ? 12 : 8)
+      
+      // If still not enough space below, position within viewport
+      if (y + tooltipHeight > viewportHeight - padding) {
+        y = viewportHeight - tooltipHeight - padding
+      }
+    }
+    
+    // Ensure tooltip stays within viewport bounds
+    if (y < padding) {
+      y = padding
     }
     
     // Update tooltip alignment class
@@ -472,9 +642,22 @@ Alpine.data('tooltip', () => ({
   },
   
   destroy() {
+    // Clean up all event listeners
     this.$el.removeEventListener('mouseenter', this.handleMouseEnter)
     this.$el.removeEventListener('mouseleave', this.handleMouseLeave)
     this.$el.removeEventListener('mousemove', this.handleMouseMove)
+    this.$el.removeEventListener('touchstart', this.handleTouchStart)
+    this.$el.removeEventListener('touchend', this.handleTouchEnd)
+    this.$el.removeEventListener('click', this.handleClick)
+    this.$el.removeEventListener('keydown', this.handleKeyDown)
+    this.$el.removeEventListener('focus', this.handleFocus)
+    this.$el.removeEventListener('blur', this.handleBlur)
+    
+    if (this.scrollHandler) {
+      window.removeEventListener('scroll', this.scrollHandler)
+    }
+    
+    document.removeEventListener('click', this.handleClickOutside)
   }
 }))
 
