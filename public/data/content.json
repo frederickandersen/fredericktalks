@@ -7,7 +7,7 @@
     "intro": {
       "text1": "Frederick talks design through a technical, commercial, and practical lens.",
       "text2": {
-        "content": "He’s a {link}. He works with product teams to build critical, AI-driven design systems.",
+        "content": "He's a {link}. He works with product teams to build critical, AI-driven design systems.",
         "links": {
           "link": {
             "text": "design studio founder",
@@ -16,7 +16,7 @@
           }
         }
       },
-      "text3": "He’s not into theory. He’s into software design that works, scales, and sells."
+      "text3": "He's not into theory. He's into software design that works, scales, and sells."
     }
   },
   "talks": [
@@ -66,7 +66,7 @@
         }
       ],
       "actions": {
-        "primary": "Let’s talk UX"
+        "primary": "Let's talk UX"
       },
       "modal": {
         "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M52.0014 37.3275H54.6614V50.6625H52.0014V37.3275Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 50.6625L52.0014 50.6625L52.0014 53.34H49.3239V50.6625Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 34.6675H52.0014L52.0014 37.3275H49.3239V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 10.6575H52.0014V18.6725H49.3239V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M46.6639 53.34H49.3239L49.3239 56H46.6639V53.34Z\" fill=\"#0D3DFF\"/><path d=\"M46.6639 31.99H49.3239L49.3239 34.6675L46.6639 34.6675V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M36.0064 29.33V18.6725H33.3289V31.99H46.6639L46.6639 29.33H36.0064Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 18.6725H49.3239V21.3325H41.3264V18.6725Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 7.9975H49.3239V10.6575L41.3264 10.6575V7.9975Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 34.6675H44.0039V42.665H41.3264V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M38.6664 10.6575L41.3264 10.6575V18.6725H38.6664V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M36.0064 0H38.6664V2.66H36.0064V0Z\" fill=\"#0D3DFF\"/><path d=\"M33.3289 34.6675H36.0064V42.665H33.3289V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M33.3289 2.66H36.0064L36.0064 5.3375H33.3289V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M27.9914 15.995H33.3289L33.3289 18.6725H27.9914V15.995Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 50.6625H27.9914V56H25.3314V50.6625Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 31.99H19.9939V34.6675H25.3314V40.005H27.9914L27.9914 18.6725H25.3314V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 0H27.9914V5.3375H25.3314V0Z\" fill=\"#0D3DFF\"/><path d=\"M22.6714 48.0025H25.3314V50.6625L22.6714 50.6625V48.0025Z\" fill=\"#0D3DFF\"/><path d=\"M19.9939 45.325H22.6714V48.0025L19.9939 48.0025V45.325Z\" fill=\"#0D3DFF\"/><path d=\"M22.6714 10.6575H19.9939V18.6725H22.6714V15.995H25.3314V13.335H33.3289V10.6575H30.6689V7.9975H22.6714V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M17.3339 34.6675H19.9939V45.325L17.3339 45.325V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M17.3339 2.66H19.9939V5.3375H17.3339V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M14.6739 0H17.3339V2.66H14.6739V0Z\" fill=\"#0D3DFF\"/><path d=\"M11.9964 31.99H14.6739V40.005H11.9964V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M11.9964 10.6575H14.6739V18.6725H11.9964V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 40.005L11.9964 40.005L11.9964 42.665H3.99887V40.005Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 29.33H11.9964L11.9964 31.99L3.99887 31.99V29.33Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 18.6725H11.9964L11.9964 21.3325H3.99887V18.6725Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 7.9975H11.9964L11.9964 10.6575L3.99887 10.6575V7.9975Z\" fill=\"#0D3DFF\"/><path d=\"M1.33887 31.99L3.99887 31.99V40.005L1.33887 40.005V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M1.33887 10.6575L3.99887 10.6575V18.6725H1.33887V10.6575Z\" fill=\"#0D3DFF\"/></svg>",
@@ -109,7 +109,7 @@
   "images": [
     {
       "url": "/images/frederick-webinar.jpg",
-      "alt": "Frederick’s facilitating a webinar.",
+      "alt": "Frederick's facilitating a webinar.",
       "placeholder": "👨‍💻"
     },
     {
