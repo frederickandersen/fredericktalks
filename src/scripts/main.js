@@ -533,6 +533,25 @@ Alpine.data('imageCarousel', () => ({
   }
 }))
 
+// Side-by-side Images Component for 2xl breakpoint
+Alpine.data('sideBySideImages', () => ({
+  firstImage: null,
+  secondImage: null,
+  
+  init() {
+    // Load images from content (might be empty initially)
+    this.firstImage = siteContent.images?.[0] || null
+    this.secondImage = siteContent.images?.[1] || null
+    
+    // Listen for content loaded event
+    window.addEventListener('contentLoaded', (event) => {
+      console.log('Side-by-side received contentLoaded event:', event.detail.images)
+      this.firstImage = event.detail.images?.[0] || null
+      this.secondImage = event.detail.images?.[1] || null
+    })
+  }
+}))
+
 // Add click handlers for talk action buttons
 document.addEventListener('click', function(e) {
   if (e.target.matches('.talk-action-btn') || e.target.closest('.talk-action-btn')) {

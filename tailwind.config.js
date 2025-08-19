@@ -3,6 +3,9 @@ export default {
   content: ['./src/**/*.{html,js}'],
   theme: {
     extend: {
+      screens: {
+        '2xl': '2500px', // Custom breakpoint for very large screens (curved monitors)
+      },
       fontFamily: {
         'serif': ['Times', 'Times New Roman', 'serif'],
         'sans': ['Times', 'Times New Roman', 'serif'], // Override default

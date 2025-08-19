@@ -147,4 +147,17 @@
       line-height: 1.3;
     }
   }
+  
+  /* Side-by-side image layout for 2xl breakpoint */
+  @media (min-width: 2500px) {
+    .side-by-side-images {
+      /* Ensure proper spacing and layout */
+      @apply gap-0;
+    }
+    
+    .side-by-side-images .image-left {
+      /* Add subtle border between images */
+      @apply border-r border-white border-opacity-20;
+    }
+  }
 } 

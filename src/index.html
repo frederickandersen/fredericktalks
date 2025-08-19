@@ -73,7 +73,8 @@
     
     <!-- Right Image Container - Fixed/Sticky -->
     <div class="flex-1 lg:h-screen lg:sticky lg:top-0 bg-primary-500 order-first lg:order-last">
-<div class="h-80 md:h-96 lg:h-full relative overflow-hidden" x-data="imageCarousel">
+      <!-- Carousel Layout (default to 2xl) -->
+      <div class="h-80 md:h-96 lg:h-full relative overflow-hidden 2xl:hidden" x-data="imageCarousel">
         <!-- Image Carousel Container -->
         <div class="absolute inset-0 flex" 
              :style="`transform: translateX(-${currentIndex * 100}%)`">
@@ -96,6 +97,49 @@
                    class="hidden">
             </div>
           </template>
+        </div>
+      </div>
+      
+      <!-- Side-by-side Layout (2xl and above) -->
+      <div class="hidden 2xl:flex h-full side-by-side-images" x-data="sideBySideImages">
+        <!-- First Image -->
+        <div class="w-1/2 h-full relative overflow-hidden image-left">
+          <div class="w-full h-full bg-cover bg-center flex items-center justify-center relative"
+               x-data="{ imageLoaded: false }"
+               :style="imageLoaded ? `background-image: url('${firstImage?.url || ''}')` : ''">
+            
+            <!-- Loading spinner -->
+            <div x-show="!imageLoaded" class="flex items-center justify-center">
+              <div class="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent opacity-60"></div>
+            </div>
+            
+            <!-- Hidden image to detect load completion -->
+            <img :src="firstImage?.url || ''" 
+                 :alt="firstImage?.alt || ''"
+                 @load="imageLoaded = true"
+                 @error="imageLoaded = true"
+                 class="hidden">
+          </div>
+        </div>
+        
+        <!-- Second Image -->
+        <div class="w-1/2 h-full relative overflow-hidden">
+          <div class="w-full h-full bg-cover bg-center flex items-center justify-center relative"
+               x-data="{ imageLoaded: false }"
+               :style="imageLoaded ? `background-image: url('${secondImage?.url || ''}')` : ''">
+            
+            <!-- Loading spinner -->
+            <div x-show="!imageLoaded" class="flex items-center justify-center">
+              <div class="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent opacity-60"></div>
+            </div>
+            
+            <!-- Hidden image to detect load completion -->
+            <img :src="secondImage?.url || ''" 
+                 :alt="secondImage?.alt || ''"
+                 @load="imageLoaded = true"
+                 @error="imageLoaded = true"
+                 class="hidden">
+          </div>
         </div>
       </div>
     </div>
