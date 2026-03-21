@@ -63,6 +63,7 @@
   
   .font-arial {
     font-family: 'GT America', 'Arial', 'Helvetica', sans-serif;
+    @apply tracking-tight;
   }
 
   .custom-underline {
@@ -133,7 +134,7 @@
   
   /* Custom Tooltip Styles */
   .custom-tooltip {
-    @apply absolute z-[60] px-3 md:px-4 py-2 md:py-3 text-[16px] md:text-[18px] font-times text-white bg-primary-500;
+    @apply absolute z-[60] px-3 md:px-4 py-2 md:py-3 text-[16px] md:text-[18px] font-arial text-white bg-primary-500;
     top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
