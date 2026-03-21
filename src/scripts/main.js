@@ -84,7 +84,7 @@ function populateContent() {
             </div>
             
             <!-- Talk Description -->
-            <p class="font-arial text-body md:text-body-md leading-[1.3] text-black">${talk.description}</p>
+            <p class="font-arial text-body md:text-[24px] leading-[1.3] text-black">${talk.description}</p>
           </div>
           
           <!-- Tags -->
