@@ -1,4 +1,7 @@
 import Alpine from 'alpinejs'
+import { inject } from '@vercel/analytics'
+
+inject()
 
 // Load content from JSON
 let siteContent = {}
