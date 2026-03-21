@@ -52,7 +52,8 @@
 
 @layer base {
   body {
-    font-family: 'PP Editorial New', 'Times', 'Times New Roman', serif;
+    font-family: 'GT America', 'Arial', 'Helvetica', sans-serif;
+    @apply tracking-tight;
   }
 }
 

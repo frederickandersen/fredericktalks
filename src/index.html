@@ -160,7 +160,7 @@
       class="modal-container"
       @click="if (!submitting && !success) closeModal()"
     >
-      <div class="modal-content" @click.stop>
+      <div class="modal-content" @click.stop role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <!-- Close Button -->
         <button 
           type="button"
@@ -198,7 +198,7 @@
             <!-- Heading -->
             <div class="space-y-4 md:space-y-5">
               <div class="space-y-2 md:space-y-3">
-                <h3 class="font-times text-[24px] md:text-[28px] leading-[1.3] text-black" id="modal-title">
+                <h3 class="font-arial font-medium text-[24px] md:text-[28px] leading-[1.3] text-black" id="modal-title">
                   <!-- Title will be populated by JavaScript -->
                 </h3>
                 <p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-black" id="modal-description">

@@ -77,7 +77,7 @@ function populateContent() {
                 <span class="font-arial text-[18px] md:text-[20px] leading-[1.1] text-primary-500 uppercase">${talk.id}</span>
               </div>
               <h2 class="flex-1 min-w-0">
-                <a href="#" class="talk-title-link font-times text-body md:text-body-md leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none cursor-pointer talk-action-btn" 
+                <a href="#" class="talk-title-link font-arial font-medium text-body md:text-body-md leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none cursor-pointer talk-action-btn" 
                    data-talk-id="${talk.id}"
                    data-action="primary">${talk.title}</a>
               </h2>
@@ -130,7 +130,7 @@ function populateContent() {
   if (footerLinksContainer && siteContent.footer?.links) {
     footerLinksContainer.innerHTML = siteContent.footer.links.map(link => `
       <a href="${link.url}" 
-         class="font-times text-[20px] leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none"
+         class="font-arial font-medium text-[20px] leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none"
          target="_blank" 
          rel="noopener noreferrer">${link.text}</a>
     `).join('')
@@ -157,7 +157,7 @@ Alpine.store('contactModal', {
     this.open = true
     this.selectedTalk = talkId
     document.body.style.overflow = 'hidden'
-    
+
     // Reset form state when opening modal
     setTimeout(() => {
       const modalComponent = document.querySelector('[x-data*="contactModal"]')
@@ -167,23 +167,50 @@ Alpine.store('contactModal', {
           data.resetForm()
         }
       }
+
+      // Auto-focus the name input
+      const nameInput = document.getElementById('name')
+      if (nameInput) nameInput.focus()
     }, 100)
-    
+
     // Populate modal content if talkId is provided
     if (talkId && siteContent.talks) {
       this.populateModalContent(talkId)
     }
-    
-    // Add ESC key listener when modal opens
+
+    // Add keyboard listeners when modal opens
     document.addEventListener('keydown', this.handleEscKey)
+    document.addEventListener('keydown', this.handleFocusTrap)
   },
-  
+
   closeModal() {
     this.open = false
     this.selectedTalk = null
     document.body.style.overflow = ''
-    // Remove ESC key listener when modal closes
+    // Remove keyboard listeners when modal closes
     document.removeEventListener('keydown', this.handleEscKey)
+    document.removeEventListener('keydown', this.handleFocusTrap)
+  },
+
+  handleFocusTrap(e) {
+    if (e.key !== 'Tab') return
+    const modal = document.querySelector('.modal-content')
+    if (!modal) return
+    const focusable = modal.querySelectorAll('button:not([disabled]), input:not([disabled]), [tabindex]:not([tabindex="-1"])')
+    if (focusable.length === 0) return
+    const first = focusable[0]
+    const last = focusable[focusable.length - 1]
+    if (e.shiftKey) {
+      if (document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      }
+    } else {
+      if (document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
   },
   
   populateModalContent(talkId) {
