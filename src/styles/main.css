@@ -70,7 +70,7 @@
   .custom-underline {
     @apply text-primary-500 underline;
     text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     text-decoration-skip-ink: auto;
   }
   
@@ -106,7 +106,7 @@
   /* Talk title link styling */
   .talk-title-link {
     text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     text-decoration-skip-ink: auto;
   }
   
@@ -117,14 +117,14 @@
   /* Social links styling */
   #social-links-container a {
     text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     text-decoration-skip-ink: auto;
   }
   
   /* Footer links styling */
   #footer-links-container a {
     text-decoration-thickness: 1px;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
     text-decoration-skip-ink: auto;
   }
   

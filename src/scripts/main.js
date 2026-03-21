@@ -77,7 +77,7 @@ function populateContent() {
                 <span class="font-arial text-[18px] md:text-[20px] leading-[1.1] text-primary-500 uppercase">${talk.id}</span>
               </div>
               <h2 class="flex-1 min-w-0">
-                <a href="#" class="talk-title-link font-arial font-medium text-body md:text-body-md leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none cursor-pointer talk-action-btn" 
+                <a href="#" class="talk-title-link font-arial font-medium text-body md:text-body-md leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[3px] decoration-skip-ink-none cursor-pointer talk-action-btn" 
                    data-talk-id="${talk.id}"
                    data-action="primary">${talk.title}</a>
               </h2>
@@ -90,7 +90,7 @@ function populateContent() {
           <!-- Tags -->
           <div class="flex gap-3 md:gap-4 items-center">
             ${talk.tags ? talk.tags.map(tag => `
-              <span class="relative font-arial text-[16px] md:text-[18px] leading-[1.4] text-gray-500 underline decoration-dotted underline-offset-[4px] cursor-help" 
+              <span class="relative font-arial text-[16px] md:text-[18px] leading-[1.4] text-gray-500 underline decoration-dotted underline-offset-[3px] cursor-help" 
                     x-data="tooltip" 
                     data-tooltip="${tag.tooltip || ''}"
                     ${tag.tooltipIcon ? `data-tooltip-icon="${tag.tooltipIcon.replace(/"/g, '&quot;')}"` : ''}>${tag.text}
@@ -130,7 +130,7 @@ function populateContent() {
   if (footerLinksContainer && siteContent.footer?.links) {
     footerLinksContainer.innerHTML = siteContent.footer.links.map(link => `
       <a href="${link.url}" 
-         class="font-arial font-medium text-[20px] leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[4px] decoration-skip-ink-none"
+         class="font-arial font-medium text-[16px] md:text-[20px] leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[3px] decoration-skip-ink-none"
          target="_blank" 
          rel="noopener noreferrer">${link.text}</a>
     `).join('')
