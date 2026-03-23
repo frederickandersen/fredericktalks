@@ -48,7 +48,7 @@ function populateContent() {
       // Replace each link placeholder with actual HTML
       Object.entries(content.links).forEach(([key, linkData]) => {
         const placeholder = `{${key}}`
-        const icon = linkData.icon ? `<span class="mr-1.5 inline-flex items-center">${linkData.icon}</span>` : ''
+        const icon = linkData.icon ? `<span class="mr-1 inline-flex items-center">${linkData.icon}</span>` : ''
         const linkHtml = `<a href="${linkData.url}" class="custom-underline inline-flex items-center font-medium" target="_blank" rel="noopener noreferrer">${icon}${linkData.text}</a>`
         html = html.replace(placeholder, linkHtml)
       })
