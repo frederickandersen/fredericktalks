@@ -1,69 +1,95 @@
 {
   "site": {
-    "title": "Frederick talks about AI design systems and UX research",
-    "description": "Design studio founder specializing in AI design systems and UX growth strategies. Available for team sessions, workshops, and talks on practical design that delivers results."
+    "title": "Frederick Andersen — Keynote Speaker on AI Design Systems & Design Engineering | Figma Config 2026",
+    "description": "Frederick Andersen is a design studio founder and keynote speaker on AI design systems, UX strategy, and design engineering. Speaking at Figma Config 2026. Available for conferences, workshops, and team sessions globally."
+  },
+  "navigation": {
+    "name": "Frederick J. Andersen",
+    "links": [
+      {
+        "text": "Talks",
+        "url": "#talks-section"
+      },
+      {
+        "text": "About",
+        "url": "#value-props-section"
+      }
+    ],
+    "ctaText": "Check availability"
   },
   "hero": {
     "intro": {
-      "text1": "Frederick talks design through a technical, commercial, and practical lens.",
+      "text1": "Frederick talks design through a technical, commercial, and practical lens",
       "text2": {
-        "content": "He’s a {link}. He works with product teams to build critical, AI-driven design systems.",
+        "content": "He’s a {link}. He works with product teams to build critical, AI-enabled design systems.",
         "links": {
           "link": {
             "text": "design studio founder",
             "url": "https://edl.dk",
-            "icon": "<svg width=\"20\" height=\"20\" class=\"w-4 h-4 md:w-5 md:h-5\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M0 0V2.28H1.1475V1.14H16.005V2.28H1.1475V11.43H0V13.71H1.1475V12.57H16.005V13.71H1.1475V22.8525H0V24H24V22.8525H22.86V13.71H17.145V12.57H22.86V13.71H24V11.43H22.86V2.28H17.145V1.14H22.86V2.28H24V0H0ZM4.575 22.8525V17.1375H8.0025V22.8525H4.575ZM9.1425 22.8525V15.9975H3.435V22.8525H2.2875V14.8575H16.005V22.8525H9.1425ZM21.72 14.8575V22.8525H17.145V14.8575H21.72ZM2.2875 11.43V3.4275H16.005V11.43H2.2875ZM21.72 3.4275V11.43H17.145V3.4275H21.72Z\" fill=\"#0D3DFF\"/><path d=\"M10.29 15.9975V21.7125H14.8575V15.9975H10.29ZM13.7175 18.285H12.5775V19.425H11.43V17.1375H13.7175V18.285Z\" fill=\"#0D3DFF\"/><path d=\"M10.29 4.5675V10.2825H14.8575V4.5675H10.29ZM13.7175 6.855H12.5775V7.995H11.43V5.715H13.7175V6.855Z\" fill=\"#0D3DFF\"/><path d=\"M5.715 20.5725H6.8625V19.425H5.715V20.5725Z\" fill=\"#0D3DFF\"/><path d=\"M3.435 4.5675V10.2825H8.0025V4.5675H3.435ZM6.8625 6.855H5.715V7.995H4.575V5.715H6.8625V6.855Z\" fill=\"currentColor\"/></svg>"
+            "style": "black"
           }
         }
-      },
-      "text3": "He’s not into theory. He’s into software design that works, scales, and sells."
+      }
     },
-    "availability": {
-      "text": "Available for talks and sessions globally",
-      "icon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\" width=\"24\" height=\"24\"><g><path d=\"m22.85 7.62 0 3.05 -1.52 0 0 4.57 1.52 0 0 1.52 1.53 0 0 1.53 -4.57 0 0 1.52 -1.53 0 0 1.52 4.57 0 0 3.05 -1.52 0 0 3.05 1.52 0 0 1.52 3.05 0 0 -1.52 1.53 0 0 -1.53 1.52 0 0 -3.04 1.52 0 0 -3.05 1.53 0 0 -7.62 -1.53 0 0 -3.05 -1.52 0 0 -3.04 -1.52 0 0 1.52 -4.58 0z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M25.9 4.57h1.53V6.1H25.9Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.85 3.05h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 28.95h3.04v1.53h-3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 1.52h3.04v1.53h-3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"m16.76 28.95 -1.52 0 0 -1.52 -4.58 0 0 1.52 -1.52 0 0 1.53 3.05 0 0 1.52 7.62 0 0 -1.52 -3.05 0 0 -1.53z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 0h7.62v1.52h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"m10.66 16.76 1.53 0 0 1.53 1.52 0 0 -4.58 -3.05 0 0 3.05z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.09 27.43h3.05v1.52H6.09Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M4.57 25.9h1.52v1.53H4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"m3.05 22.86 0 3.04 1.52 0 0 -1.52 1.52 0 0 -1.52 1.53 0 0 -4.57 -1.53 0 0 -1.53 -1.52 0 0 -1.52 -1.52 0 0 -1.53 1.52 0 0 -1.52 4.57 0 0 -1.52 1.52 0 0 -1.53 1.53 0 0 1.53 1.52 0 0 -1.53 1.53 0 0 -3.04 -1.53 0 0 -1.53 -3.05 0 0 -1.52 1.53 0 0 -1.53 -3.05 0 0 1.53 -3.05 0 0 1.52 -1.52 0 0 1.53 -1.52 0 0 3.04 -1.53 0 0 3.05 -1.52 0 0 7.62 1.52 0 0 3.05 1.53 0z\" fill=\"currentColor\" stroke-width=\"1\"></path></g></svg>"
+    "configCallout": {
+      "show": true,
+      "text": "Speaking at <strong>Figma Config 2026</strong>",
+      "url": "https://config.figma.com/san-francisco/speakers/?speaker=frederick-andersen"
     }
   },
   "talks": [
     {
       "id": 1,
-      "title": "AI design systems playbook",
-      "description": "A hands-on session on how we build and scale design systems. No developers. Just MCP, LLMs, and a systems mindset. Zero vibes.",
+      "title": "Design systems without developers",
+      "description": "How to build production-grade design systems. No dedicated developer required. MCP, LLMs, and a systems mindset developed across 12 months of real client delivery. You leave with a working method, not a slide deck.",
+      "formats": [
+        "Workshop",
+        "Team session"
+      ],
+      "duration": "Half-day or full-day",
+      "audienceFit": "Best for: Engineering leads, Design managers, Product teams",
       "tags": [
         {
-          "text": "On-site",
-          "tooltip": "Available for in-person team sessions.",
-          "tooltipIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\" width=\"24\" height=\"24\" fill=\"white\"><path d=\"M22.85 15.24h-1.52v-1.52h-1.52v-1.53h-1.53v-1.52h-1.52V9.14h-1.52V7.62h-1.53V6.1h-1.52v18.28h1.52v-1.52h1.53v-1.52h1.52v-1.53h1.52v-1.52h6.1v-1.53h-1.53Zm-7.61 3.05h-1.53v-6.1h1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M30.47 12.19H32v7.62h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M28.95 19.81h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M28.95 9.14h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 22.86h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 6.1h1.52v3.04h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M25.9 25.91h1.53v1.52H25.9Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M25.9 4.57h1.53V6.1H25.9Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.85 27.43h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.85 3.05h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 28.95h3.04v1.53h-3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 1.53h3.04v1.52h-3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 30.48h7.62V32h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 0h7.62v1.53h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M9.14 28.95h3.05v1.53H9.14Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M9.14 1.53h3.05v1.52H9.14Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.09 27.43h3.05v1.52H6.09Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.09 3.05h3.05v1.52H6.09Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M4.57 25.91h1.52v1.52H4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M4.57 4.57h1.52V6.1H4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M3.04 22.86h1.53v3.05H3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M3.04 6.1h1.53v3.04H3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M1.52 19.81h1.52v3.05H1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M1.52 9.14h1.52v3.05H1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M0 12.19h1.52v7.62H0Z\" fill=\"currentColor\" stroke-width=\"1\"></path></svg>"
+          "text": "Workshop",
+          "tooltip": "Hands-on, interactive session format for teams.",
+          "tooltipIcon": ""
         },
         {
-          "text": "Teams",
+          "text": "Team session",
           "tooltip": "Designed for mid-size to large product teams.",
-          "tooltipIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\" width=\"24\" height=\"24\" fill=\"white\"><path d=\"M30.48 18.285H32v1.53h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 16.765h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 13.715h1.52v1.53h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"m22.86 15.245 0 -3.05 -1.52 0 0 -1.53 -1.53 0 0 -3.04 1.53 0 0 -1.53 6.09 0 0 1.53 1.52 0 0 6.09 1.53 0 0 -9.14 -1.53 0 0 -1.53 -1.52 0 0 -1.52 -6.09 0 0 1.52 -1.53 0 0 1.53 -1.52 0 0 4.57 -4.57 0 0 -4.57 -1.53 0 0 -1.53 -1.52 0 0 -1.52 -6.1 0 0 1.52 -1.52 0 0 1.53 -1.52 0 0 9.14 1.52 0 0 -6.09 1.52 0 0 -1.53 6.1 0 0 1.53 1.52 0 0 3.04 -1.52 0 0 1.53 -1.52 0 0 3.05 -4.58 0 0 1.52 4.58 0 0 6.09 1.52 0 0 -7.61 1.52 0 0 -1.53 7.62 0 0 1.53 1.53 0 0 7.61 1.52 0 0 -6.09 4.57 0 0 -1.52 -4.57 0z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M24.38 28.955h1.53v1.52h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.86 27.435h1.52v1.52h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 25.905h3.05v1.53h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 22.855h1.53v1.53h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M18.29 16.765h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 24.385h7.62v1.52h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M13.72 21.335h4.57v1.52h-4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 16.765h1.53v3.05h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M10.67 22.855h1.52v1.53h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M9.15 25.905h3.04v1.53H9.15Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M7.62 27.435h1.53v1.52H7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.1 28.955h1.52v1.52H6.1Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M3.05 13.715h1.52v1.53H3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M1.53 16.765h3.04v1.52H1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M0 18.285h1.53v1.53H0Z\" fill=\"currentColor\" stroke-width=\"1\"></path></svg>"
+          "tooltipIcon": ""
         }
       ],
       "actions": {
         "primary": "Bring me in for a team session"
       },
       "modal": {
-        "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M53.34 50.6625H50.68V53.34H32.0075V48.0025H48.0025V29.33H50.68V26.67H45.3425V5.3375H42.6825V23.9925H40.005V26.67H18.6725V23.9925H16.0125V26.67H0V50.6625H2.6775V48.0025H24.01V50.6625H26.67V48.0025H29.3475V50.6625H26.67V53.34H5.3375V56H56V32.0075H53.34V50.6625ZM21.35 45.325H2.6775V29.33H21.35V45.325ZM26.67 45.325V29.33H45.3425V45.325H26.67Z\" fill=\"#0D3DFF\"/><path d=\"M50.68 29.33L53.34 29.33L53.34 32.0075H50.68L50.68 29.33Z\" fill=\"#0D3DFF\"/><path d=\"M48.0025 48.0025L50.68 48.0025L50.68 50.6625L48.0025 50.6625L48.0025 48.0025Z\" fill=\"#0D3DFF\"/><path d=\"M40.005 2.66H42.6825V5.3375H40.005V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M37.345 34.6675H40.005V37.3275H37.345V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M37.345 21.3325H40.005L40.005 23.9925L37.345 23.9925V21.3325Z\" fill=\"#0D3DFF\"/><path d=\"M34.6675 32.0075H37.345L37.345 34.6675L34.6675 34.6675V32.0075Z\" fill=\"#0D3DFF\"/><path d=\"M40.005 40.005H32.0075V37.3275H29.3475V42.665H42.6825V37.3275H40.005L40.005 40.005Z\" fill=\"#0D3DFF\"/><path d=\"M32.0075 34.6675L34.6675 34.6675L34.6675 37.3275H32.0075L32.0075 34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M29.3475 5.3375H26.67V7.9975H24.01V5.3375H21.35V7.9975H18.6725V10.675H21.35V13.335H24.01V15.995H26.67V13.335H29.3475V10.675H32.0075V7.9975H29.3475V5.3375Z\" fill=\"#0D3DFF\"/><path d=\"M37.345 21.3325V2.66H40.005L40.005 0H13.335V23.9925L16.0125 23.9925V21.3325L37.345 21.3325ZM16.0125 2.66H34.6675V18.6725H16.0125V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M13.335 34.6675H16.0125V40.005H13.335V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M8.015 32.0075H13.335V34.6675L8.015 34.6675V32.0075Z\" fill=\"#0D3DFF\"/><path d=\"M8.015 40.005H13.335V42.665H8.015V40.005Z\" fill=\"#0D3DFF\"/><path d=\"M5.3375 34.6675L8.015 34.6675V40.005H5.3375V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M2.6775 50.6625H5.3375L5.3375 53.34H2.6775L2.6775 50.6625Z\" fill=\"#0D3DFF\"/></svg>",
-        "title": "AI design systems playbook",
+        "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M53.34 50.6625H50.68V53.34H32.0075V48.0025H48.0025V29.33H50.68V26.67H45.3425V5.3375H42.6825V23.9925H40.005V26.67H18.6725V23.9925H16.0125V26.67H0V50.6625H2.6775V48.0025H24.01V50.6625H26.67V48.0025H29.3475V50.6625H26.67V53.34H5.3375V56H56V32.0075H53.34V50.6625ZM21.35 45.325H2.6775V29.33H21.35V45.325ZM26.67 45.325V29.33H45.3425V45.325H26.67Z\" fill=\"#F24E1E\"/><path d=\"M50.68 29.33L53.34 29.33L53.34 32.0075H50.68L50.68 29.33Z\" fill=\"#F24E1E\"/><path d=\"M48.0025 48.0025L50.68 48.0025L50.68 50.6625L48.0025 50.6625L48.0025 48.0025Z\" fill=\"#F24E1E\"/><path d=\"M40.005 2.66H42.6825V5.3375H40.005V2.66Z\" fill=\"#F24E1E\"/><path d=\"M37.345 34.6675H40.005V37.3275H37.345V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M37.345 21.3325H40.005L40.005 23.9925L37.345 23.9925V21.3325Z\" fill=\"#F24E1E\"/><path d=\"M34.6675 32.0075H37.345L37.345 34.6675L34.6675 34.6675V32.0075Z\" fill=\"#F24E1E\"/><path d=\"M40.005 40.005H32.0075V37.3275H29.3475V42.665H42.6825V37.3275H40.005L40.005 40.005Z\" fill=\"#F24E1E\"/><path d=\"M32.0075 34.6675L34.6675 34.6675L34.6675 37.3275H32.0075L32.0075 34.6675Z\" fill=\"#F24E1E\"/><path d=\"M29.3475 5.3375H26.67V7.9975H24.01V5.3375H21.35V7.9975H18.6725V10.675H21.35V13.335H24.01V15.995H26.67V13.335H29.3475V10.675H32.0075V7.9975H29.3475V5.3375Z\" fill=\"#F24E1E\"/><path d=\"M37.345 21.3325V2.66H40.005L40.005 0H13.335V23.9925L16.0125 23.9925V21.3325L37.345 21.3325ZM16.0125 2.66H34.6675V18.6725H16.0125V2.66Z\" fill=\"#F24E1E\"/><path d=\"M13.335 34.6675H16.0125V40.005H13.335V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M8.015 32.0075H13.335V34.6675L8.015 34.6675V32.0075Z\" fill=\"#F24E1E\"/><path d=\"M8.015 40.005H13.335V42.665H8.015V40.005Z\" fill=\"#F24E1E\"/><path d=\"M5.3375 34.6675L8.015 34.6675V40.005H5.3375V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M2.6775 50.6625H5.3375L5.3375 53.34H2.6775L2.6775 50.6625Z\" fill=\"#F24E1E\"/></svg>",
+        "title": "Design systems without developers",
         "description": "Great for internal design or engineering teams or bigger crowds of technical product folks. Straightforward. No fluff.",
-        "subtitle": "No commitment before our initial chat."
+        "subtitle": "Frederick's team typically responds within 24 hours."
       }
     },
     {
       "id": 2,
-      "title": "How better UX drives growth",
-      "description": "A talk on why UX is still misunderstood, the costly mistakes we see, and what happens when you actually listen to users.",
+      "title": "From designers to design engineers",
+      "description": "EDL cut time-to-market by 48% by making one structural change: designers who ship code became the default. This is what we changed, what it cost us to figure out, and why your team can do it now.",
+      "formats": [
+        "Keynote",
+        "Leadership session"
+      ],
+      "duration": "20-60 min",
+      "audienceFit": "Best for: Design leads, Engineering managers, Product teams",
       "tags": [
         {
-          "text": "Conferences",
-          "tooltip": "Perfect for conference presentations.",
-          "tooltipIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\" width=\"24\" height=\"24\" fill=\"white\"><path d=\"M22.85 15.24h-1.52v-1.52h-1.52v-1.53h-1.53v-1.52h-1.52V9.14h-1.52V7.62h-1.53V6.1h-1.52v18.28h1.52v-1.52h1.53v-1.52h1.52v-1.53h1.52v-1.52h6.1v-1.53h-1.53Zm-7.61 3.05h-1.53v-6.1h1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M30.47 12.19H32v7.62h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M28.95 19.81h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M28.95 9.14h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 22.86h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 6.1h1.52v3.04h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M25.9 25.91h1.53v1.52H25.9Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M25.9 4.57h1.53V6.1H25.9Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.85 27.43h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.85 3.05h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 28.95h3.04v1.53h-3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 1.53h3.04v1.52h-3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 30.48h7.62V32h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 0h7.62v1.53h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M9.14 28.95h3.05v1.53H9.14Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M9.14 1.53h3.05v1.52H9.14Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.09 27.43h3.05v1.52H6.09Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.09 3.05h3.05v1.52H6.09Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M4.57 25.91h1.52v1.52H4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M4.57 4.57h1.52V6.1H4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M3.04 22.86h1.53v3.05H3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M3.04 6.1h1.53v3.04H3.04Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M1.52 19.81h1.52v3.05H1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M1.52 9.14h1.52v3.05H1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M0 12.19h1.52v7.62H0Z\" fill=\"currentColor\" stroke-width=\"1\"></path></svg>"
+          "text": "Keynote",
+          "tooltip": "Perfect for keynote presentations at conferences and events.",
+          "tooltipIcon": ""
         },
         {
-          "text": "Leadership",
-          "tooltip": "Ideal for startup founders and product leaders (e.g., CPO or product managers).",
-          "tooltipIcon": "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 32 32\" width=\"24\" height=\"24\" fill=\"white\"><path d=\"M30.48 18.285H32v1.53h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 16.765h3.05v1.52h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M27.43 13.715h1.52v1.53h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"m22.86 15.245 0 -3.05 -1.52 0 0 -1.53 -1.53 0 0 -3.04 1.53 0 0 -1.53 6.09 0 0 1.53 1.52 0 0 6.09 1.53 0 0 -9.14 -1.53 0 0 -1.53 -1.52 0 0 -1.52 -6.09 0 0 1.52 -1.53 0 0 1.53 -1.52 0 0 4.57 -4.57 0 0 -4.57 -1.53 0 0 -1.53 -1.52 0 0 -1.52 -6.1 0 0 1.52 -1.52 0 0 1.53 -1.52 0 0 9.14 1.52 0 0 -6.09 1.52 0 0 -1.53 6.1 0 0 1.53 1.52 0 0 3.04 -1.52 0 0 1.53 -1.52 0 0 3.05 -4.58 0 0 1.52 4.58 0 0 6.09 1.52 0 0 -7.61 1.52 0 0 -1.53 7.62 0 0 1.53 1.53 0 0 7.61 1.52 0 0 -6.09 4.57 0 0 -1.52 -4.57 0z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M24.38 28.955h1.53v1.52h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M22.86 27.435h1.52v1.52h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 25.905h3.05v1.53h-3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M19.81 22.855h1.53v1.53h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M18.29 16.765h1.52v3.05h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 24.385h7.62v1.52h-7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M13.72 21.335h4.57v1.52h-4.57Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M12.19 16.765h1.53v3.05h-1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M10.67 22.855h1.52v1.53h-1.52Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M9.15 25.905h3.04v1.53H9.15Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M7.62 27.435h1.53v1.52H7.62Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M6.1 28.955h1.52v1.52H6.1Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M3.05 13.715h1.52v1.53H3.05Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M1.53 16.765h3.04v1.52H1.53Z\" fill=\"currentColor\" stroke-width=\"1\"></path><path d=\"M0 18.285h1.53v1.53H0Z\" fill=\"currentColor\" stroke-width=\"1\"></path></svg>"
+          "text": "Leadership session",
+          "tooltip": "Ideal for founders and product leaders.",
+          "tooltipIcon": ""
         }
       ],
       "actions": {
@@ -71,9 +97,41 @@
       },
       "modal": {
         "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M52.0014 37.3275H54.6614V50.6625H52.0014V37.3275Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 50.6625L52.0014 50.6625L52.0014 53.34H49.3239V50.6625Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 34.6675H52.0014L52.0014 37.3275H49.3239V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 10.6575H52.0014V18.6725H49.3239V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M46.6639 53.34H49.3239L49.3239 56H46.6639V53.34Z\" fill=\"#0D3DFF\"/><path d=\"M46.6639 31.99H49.3239L49.3239 34.6675L46.6639 34.6675V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M36.0064 29.33V18.6725H33.3289V31.99H46.6639L46.6639 29.33H36.0064Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 18.6725H49.3239V21.3325H41.3264V18.6725Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 7.9975H49.3239V10.6575L41.3264 10.6575V7.9975Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 34.6675H44.0039V42.665H41.3264V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M38.6664 10.6575L41.3264 10.6575V18.6725H38.6664V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M36.0064 0H38.6664V2.66H36.0064V0Z\" fill=\"#0D3DFF\"/><path d=\"M33.3289 34.6675H36.0064V42.665H33.3289V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M33.3289 2.66H36.0064L36.0064 5.3375H33.3289V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M27.9914 15.995H33.3289L33.3289 18.6725H27.9914V15.995Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 50.6625H27.9914V56H25.3314V50.6625Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 31.99H19.9939V34.6675H25.3314V40.005H27.9914L27.9914 18.6725H25.3314V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 0H27.9914V5.3375H25.3314V0Z\" fill=\"#0D3DFF\"/><path d=\"M22.6714 48.0025H25.3314V50.6625L22.6714 50.6625V48.0025Z\" fill=\"#0D3DFF\"/><path d=\"M19.9939 45.325H22.6714V48.0025L19.9939 48.0025V45.325Z\" fill=\"#0D3DFF\"/><path d=\"M22.6714 10.6575H19.9939V18.6725H22.6714V15.995H25.3314V13.335H33.3289V10.6575H30.6689V7.9975H22.6714V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M17.3339 34.6675H19.9939V45.325L17.3339 45.325V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M17.3339 2.66H19.9939V5.3375H17.3339V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M14.6739 0H17.3339V2.66H14.6739V0Z\" fill=\"#0D3DFF\"/><path d=\"M11.9964 31.99H14.6739V40.005H11.9964V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M11.9964 10.6575H14.6739V18.6725H11.9964V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 40.005L11.9964 40.005L11.9964 42.665H3.99887V40.005Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 29.33H11.9964L11.9964 31.99L3.99887 31.99V29.33Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 18.6725H11.9964L11.9964 21.3325H3.99887V18.6725Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 7.9975H11.9964L11.9964 10.6575L3.99887 10.6575V7.9975Z\" fill=\"#0D3DFF\"/><path d=\"M1.33887 31.99L3.99887 31.99V40.005L1.33887 40.005V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M1.33887 10.6575L3.99887 10.6575V18.6725H1.33887V10.6575Z\" fill=\"#0D3DFF\"/></svg>",
-        "title": "How better UX drives growth",
-        "description": "Perfect for product teams struggling with user adoption or conversion rates. It’s not rocket science. But it works.",
-        "subtitle": "No commitment before our initial chat."
+        "title": "From designers to design engineers",
+        "description": "For teams that want to bridge the gap between design and engineering. Practical, not theoretical.",
+        "subtitle": "Frederick's team typically responds within 24 hours."
+      }
+    },
+    {
+      "id": 3,
+      "title": "From conversation to commit",
+      "description": "The best product teams aren't doing more research. They're closing the loop faster. This talk is about building a research-first practice where AI compresses the distance between insight and implementation.",
+      "formats": [
+        "Keynote",
+        "Workshop"
+      ],
+      "duration": "20-60 min",
+      "audienceFit": "Best for: Product managers, UX researchers, Design leads",
+      "tags": [
+        {
+          "text": "Keynote",
+          "tooltip": "Perfect for keynote presentations at conferences and events.",
+          "tooltipIcon": ""
+        },
+        {
+          "text": "Workshop",
+          "tooltip": "Hands-on, interactive session format for teams.",
+          "tooltipIcon": ""
+        }
+      ],
+      "actions": {
+        "primary": "Book this talk"
+      },
+      "modal": {
+        "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M42.6662 34.6675V32.0075H39.9887V34.6675H34.6512V45.325H21.3337V40.005H18.6562V50.6625H21.3337V48.0025H34.6512V56H56.0012V34.6675H42.6662ZM53.3237 53.34H37.3287V37.3275H53.3237V53.34Z\" fill=\"#874FFF\"/><path d=\"M39.9883 40.005H50.6633V50.6625H39.9883V40.005Z\" fill=\"#874FFF\"/><path d=\"M37.3281 26.67H39.9881V32.0075H37.3281V26.67Z\" fill=\"#874FFF\"/><path d=\"M34.6504 13.335H37.3279V18.6725H34.6504V13.335Z\" fill=\"#874FFF\"/><path d=\"M31.9902 7.9975H34.6502V13.335H31.9902V7.9975Z\" fill=\"#874FFF\"/><path d=\"M29.3301 2.65997H31.9901V7.99747H29.3301V2.65997Z\" fill=\"#874FFF\"/><path d=\"M23.9922 0H29.3297V2.66H23.9922V0Z\" fill=\"#874FFF\"/><path d=\"M31.9895 18.6725V15.995H29.3295V10.6575H23.992V15.995H21.332V18.6725H31.9895Z\" fill=\"#874FFF\"/><path d=\"M21.332 2.65997H23.992V7.99747H21.332V2.65997Z\" fill=\"#874FFF\"/><path d=\"M18.6562 7.9975H21.3337V13.335H18.6562V7.9975Z\" fill=\"#874FFF\"/><path d=\"M15.9941 50.6625H18.6541V53.34H15.9941V50.6625Z\" fill=\"#874FFF\"/><path d=\"M15.9941 37.3275H18.6541V40.005H15.9941V37.3275Z\" fill=\"#874FFF\"/><path d=\"M18.6559 23.9925H34.6509V26.67H37.3284V23.9925H39.9884V18.6725H37.3284V21.3325H15.9959V18.6725H13.3184V23.9925H15.9959V26.67H18.6559V23.9925Z\" fill=\"#874FFF\"/><path d=\"M15.9941 13.335H18.6541V18.6725H15.9941V13.335Z\" fill=\"#874FFF\"/><path d=\"M13.3184 26.67H15.9959V32.0075H13.3184V26.67Z\" fill=\"#874FFF\"/><path d=\"M5.32031 53.34H15.9953V56H5.32031V53.34Z\" fill=\"#874FFF\"/><path d=\"M13.3178 40.005H7.99781V42.665H5.32031V48.0025H7.99781V50.6625H13.3178V48.0025H15.9953V42.665H13.3178V40.005Z\" fill=\"#874FFF\"/><path d=\"M15.9953 37.3275V34.6675H13.3178V32.0075H10.6578V34.6675H5.32031V37.3275H15.9953Z\" fill=\"#874FFF\"/><path d=\"M2.66016 50.6625H5.32016V53.34H2.66016V50.6625Z\" fill=\"#874FFF\"/><path d=\"M2.66016 37.3275H5.32016V40.005H2.66016V37.3275Z\" fill=\"#874FFF\"/><path d=\"M0 40.005H2.66V50.6625H0V40.005Z\" fill=\"#874FFF\"/></svg>",
+        "title": "From conversation to commit",
+        "description": "For teams that want to turn research insights into shipped product. Practical frameworks, not theory.",
+        "subtitle": "Frederick's team typically responds within 24 hours."
       }
     }
   ],
@@ -93,6 +151,46 @@
       }
     ]
   },
+  "socialProof": {
+    "showConferences": true,
+    "showStats": true,
+    "sectionTitle": "Trusted by",
+    "conferences": [
+      {
+        "name": "Figma Config 2026",
+        "logo": "",
+        "url": "https://config.figma.com/",
+        "upcoming": true
+      }
+    ],
+    "stats": [
+      {
+        "value": "500+",
+        "label": "designers and engineers reached"
+      },
+      {
+        "value": "10+",
+        "label": "teams trained on AI design systems"
+      }
+    ]
+  },
+  "booking": {
+    "ctaText": "Booking Q3-Q4 2026",
+    "ctaDescription": "Reach out about Frederick's availability for keynotes, podcasts, or other engagements.",
+    "modal": {
+      "eventTypes": [
+        "Keynote",
+        "Podcast",
+        "Corporate event",
+        "Workshop",
+        "Other"
+      ],
+      "subtitle": "Frederick's team typically responds within 24 hours.",
+      "genericTitle": "Book Frederick",
+      "genericDescription": "Tell us about your event and we'll get back to you with availability and details.",
+      "genericIcon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M53.34 50.6625H50.68V53.34H32.0075V48.0025H48.0025V29.33H50.68V26.67H45.3425V5.3375H42.6825V23.9925H40.005V26.67H18.6725V23.9925H16.0125V26.67H0V50.6625H2.6775V48.0025H24.01V50.6625H26.67V48.0025H29.3475V50.6625H26.67V53.34H5.3375V56H56V32.0075H53.34V50.6625ZM21.35 45.325H2.6775V29.33H21.35V45.325ZM26.67 45.325V29.33H45.3425V45.325H26.67Z\" fill=\"#0D3DFF\"/><path d=\"M50.68 29.33L53.34 29.33L53.34 32.0075H50.68L50.68 29.33Z\" fill=\"#0D3DFF\"/><path d=\"M48.0025 48.0025L50.68 48.0025L50.68 50.6625L48.0025 50.6625L48.0025 48.0025Z\" fill=\"#0D3DFF\"/><path d=\"M40.005 2.66H42.6825V5.3375H40.005V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M37.345 34.6675H40.005V37.3275H37.345V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M37.345 21.3325H40.005L40.005 23.9925L37.345 23.9925V21.3325Z\" fill=\"#0D3DFF\"/><path d=\"M34.6675 32.0075H37.345L37.345 34.6675L34.6675 34.6675V32.0075Z\" fill=\"#0D3DFF\"/><path d=\"M40.005 40.005H32.0075V37.3275H29.3475V42.665H42.6825V37.3275H40.005L40.005 40.005Z\" fill=\"#0D3DFF\"/><path d=\"M32.0075 34.6675L34.6675 34.6675L34.6675 37.3275H32.0075L32.0075 34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M29.3475 5.3375H26.67V7.9975H24.01V5.3375H21.35V7.9975H18.6725V10.675H21.35V13.335H24.01V15.995H26.67V13.335H29.3475V10.675H32.0075V7.9975H29.3475V5.3375Z\" fill=\"#0D3DFF\"/><path d=\"M37.345 21.3325V2.66H40.005L40.005 0H13.335V23.9925L16.0125 23.9925V21.3325L37.345 21.3325ZM16.0125 2.66H34.6675V18.6725H16.0125V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M13.335 34.6675H16.0125V40.005H13.335V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M8.015 32.0075H13.335V34.6675L8.015 34.6675V32.0075Z\" fill=\"#0D3DFF\"/><path d=\"M8.015 40.005H13.335V42.665H8.015V40.005Z\" fill=\"#0D3DFF\"/><path d=\"M5.3375 34.6675L8.015 34.6675V40.005H5.3375V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M2.6775 50.6625H5.3375L5.3375 53.34H2.6775L2.6775 50.6625Z\" fill=\"#0D3DFF\"/></svg>"
+    }
+  },
   "modal": {
     "contact": {
       "form": {
@@ -104,10 +202,34 @@
       }
     }
   },
+  "homePage": {
+    "valueProps": {
+      "title": "Why book Frederick",
+      "items": [
+        {
+          "title": "Design × Engineering",
+          "description": "Technical enough for engineers, strategic enough for leadership."
+        },
+        {
+          "title": "Grounded in production",
+          "description": "Every talk is built on real systems Frederick has shipped. Not slides repackaged from blog posts."
+        },
+        {
+          "title": "Tailored to your team",
+          "description": "Sessions are adapted to your team's challenges, stack, and goals. No generic keynotes."
+        }
+      ]
+    },
+    "talksPreview": {
+      "title": "What Frederick speaks on",
+      "customTalkText": "Have a specific topic in mind? Frederick tailors talks to your team's challenges.",
+      "customTalkCta": "Send a request"
+    }
+  },
   "images": [
     {
-      "url": "/images/frederick-webinar.jpg",
-      "alt": "Frederick's facilitating a webinar."
+      "url": "/images/frederick-hero.png",
+      "alt": "Frederick in his studio with a camera"
     },
     {
       "url": "/images/frederick-library.jpg",
@@ -117,5 +239,55 @@
       "url": "/images/frederick-podcast.jpg",
       "alt": "Frederick hosting a podcast episode."
     }
-  ]
-} 
+  ],
+  "talksPage": {
+    "title": "Talks & Sessions",
+    "subtitle": "Available for conferences, workshops, and team sessions globally."
+  },
+  "bookPage": {
+    "title": "The Design Engineering Gap",
+    "subtitle": "A practical guide to closing the space between design and code.",
+    "pitch": [
+      "Most teams treat design and engineering as two separate worlds. One side pushes pixels, the other ships code. The result? Broken handoffs, design drift, and systems that don't scale.",
+      "This book is a practical guide for anyone who wants to close that gap. It's built on real production work — not theory — and covers how to think about design systems as engineering artifacts, how to structure cross-functional teams, and how to ship design that actually survives contact with code."
+    ],
+    "toc": [
+      "The Gap Nobody Talks About",
+      "Design Systems as Engineering Artifacts",
+      "AI-Driven Design: From Prototype to Production",
+      "Structuring Cross-Functional Teams",
+      "The MCP and LLM Toolkit for Designers",
+      "Shipping Design That Scales",
+      "Case Studies from the Field"
+    ],
+    "downloadUrl": "/the-design-engineering-gap.pdf",
+    "downloadCtaText": "Download free book",
+    "endorsements": [],
+    "coverImage": {
+      "placeholder": "Book cover — The Design Engineering Gap by Frederick Andersen"
+    }
+  },
+  "aboutPage": {
+    "title": "About Frederick",
+    "bio": [
+      "Frederick Andersen is the founder of EDL, a design studio in Copenhagen that builds AI-driven design systems for technical product teams.",
+      "He sits at the intersection of design, engineering, and product strategy — a space where most speakers don't operate. His work is grounded in real production systems, not conference-circuit theory.",
+      "Before founding EDL, Frederick worked across product design, front-end engineering, and design systems at scale. He's advised teams at startups and enterprises on how to structure design that actually ships.",
+      "Frederick speaks globally on AI design systems, UX strategy, and design engineering. He's the author of The Design Engineering Gap and is speaking at Figma Config 2026."
+    ],
+    "philosophy": "Frederick's talks are built the same way he builds products: with a systems mindset, zero fluff, and a focus on what actually works in production. Every session is grounded in real work — not slides full of theory. He tailors content to the room and leaves teams with tools they can use the next day.",
+    "studioDescription": "EDL is a design studio that builds AI-driven design systems for technical product teams. Based in Copenhagen, EDL works with startups and scale-ups to create systems that scale.",
+    "studioUrl": "https://edl.dk",
+    "photos": [
+      {
+        "placeholder": "Frederick working at his desk at EDL studio"
+      },
+      {
+        "placeholder": "Frederick in conversation at a design conference"
+      },
+      {
+        "placeholder": "The EDL studio in Copenhagen"
+      }
+    ]
+  }
+}

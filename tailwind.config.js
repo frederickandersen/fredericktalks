@@ -3,12 +3,9 @@ export default {
   content: ['./src/**/*.{html,js}'],
   theme: {
     extend: {
-      screens: {
-        '2xl': '2500px', // Custom breakpoint for very large screens (curved monitors)
-      },
       fontFamily: {
-        'serif': ['PP Editorial New', 'Times', 'Times New Roman', 'serif'],
-        'sans': ['PP Editorial New', 'Times', 'Times New Roman', 'serif'], // Override default
+        'serif': ['Familjen Grotesk', 'Arial', 'Helvetica', 'sans-serif'],
+        'sans': ['Familjen Grotesk', 'Arial', 'Helvetica', 'sans-serif'],
       },
       colors: {
         'primary': {
@@ -19,20 +16,15 @@ export default {
         'gray': {
           50: '#f7f7f7',
           100: '#cccccc',
+          200: '#e5e5e5',
           900: '#000000',
         }
-      },
-      maxWidth: {
-        'container': '960px',
-        'content': '520px',
       },
       fontSize: {
         'body': ['20px', { lineHeight: '1.3' }],
         'body-md': ['28px', { lineHeight: '1.3' }],
-        'number': ['20px', { lineHeight: '1.1' }],
-        'number-md': ['24px', { lineHeight: '1.1' }],
       }
     },
   },
   plugins: [],
-} 
+}

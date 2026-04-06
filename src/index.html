@@ -3,285 +3,81 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Frederick Talks</title>
-  <meta name="description" content="Frederick talks design through a technical, commercial, and practical lens.">
+  <title>Frederick Andersen — Keynote Speaker on AI Design Systems & Design Engineering | Figma Config 2026</title>
+  <meta name="description" content="Frederick Andersen is a design studio founder and keynote speaker on AI design systems, UX strategy, and design engineering. Speaking at Figma Config 2026. Available for conferences, workshops, and team sessions globally.">
   <link rel="stylesheet" href="/styles/main.css">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='15' width='80' height='50' rx='8' fill='%230D3DFF'/><polygon points='30,65 40,80 50,65' fill='%230D3DFF'/></svg>">
+  <style>[x-cloak] { display: none !important; }</style>
 </head>
 <body class="bg-gray-50 text-black antialiased overflow-x-hidden">
-    <!-- Main Split Layout -->
-  <div class="flex flex-col lg:flex-row min-h-screen bg-gray-50">
-    
-    <!-- Left Content Container -->
-    <div class="flex-1 lg:max-w-container w-full overflow-y-auto">
-      
-      <!-- Hero/Intro Section -->
-      <section class="px-6 md:px-10 pt-6 md:pt-10 pb-16 md:pb-20 md:pb-32 pr-6 md:pr-10 lg:pr-40 talk-section">
-        <div class="max-w-content space-y-6 md:space-y-8">
-          <p class="text-body md:text-body-md text-black" data-content="hero.intro.text1">
-            Frederick talks design through a technical, commercial, and practical lens.
-          </p>
-          <p class="text-body md:text-body-md text-black" data-content="hero.intro.text2">
-            He's a design studio founder. He works with technical product teams to build critical, AI-driven design systems.
-          </p>
-          <!-- <p class="text-body text-black" data-content="hero.intro.text3">
-            He's not into theory. He's into software design that works, scales, and sells.
-          </p> -->
-          
-          <!-- Global Availability -->
-          <div>
-            <span class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-gray-500">
-              Available for talks and sessions globally
-            </span>
-          </div>
-        </div>
-      </section>
-      
-      <!-- Talks Section -->
-      <div id="talks-container">
-        <!-- Talks will be populated by JavaScript -->
+  <div id="nav-placeholder"></div>
+
+  <!-- 1. HERO -->
+  <div id="hero-section" class="bg-gray-50 relative">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-8 md:pt-10 pb-10 md:pb-20">
+      <!-- Config Callout -->
+      <div id="config-callout" class="hidden">
+        <a id="config-callout-link" href="#" target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-3 text-black hover:opacity-80 transition-opacity">
+          <svg width="15" height="23" viewBox="0 0 15 23" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.7512 23C5.82079 23 7.50045 21.2827 7.50045 19.1667V15.3334H3.7512C1.68162 15.3334 0.00195312 17.0507 0.00195312 19.1667C0.00195312 21.2827 1.68162 23 3.7512 23Z" fill="#0ACF83"/><path d="M0.00195312 11.5C0.00195312 9.38396 1.68162 7.66663 3.7512 7.66663H7.50045V15.3333H3.7512C1.68162 15.3333 0.00195312 13.616 0.00195312 11.5Z" fill="#A259FF"/><path d="M0.000976562 3.83333C0.000976562 1.71733 1.68064 0 3.75023 0H7.49948V7.66667H3.75023C1.68064 7.66667 0.000976562 5.94933 0.000976562 3.83333Z" fill="#F24E1E"/><path d="M7.5 0H11.2492C13.3188 0 14.9985 1.71733 14.9985 3.83333C14.9985 5.94933 13.3188 7.66667 11.2492 7.66667H7.5V0Z" fill="#FF7262"/><path d="M14.9985 11.5C14.9985 13.616 13.3188 15.3333 11.2492 15.3333C9.17966 15.3333 7.5 13.616 7.5 11.5C7.5 9.384 9.17966 7.66667 11.2492 7.66667C13.3188 7.66667 14.9985 9.384 14.9985 11.5Z" fill="#1ABCFE"/></svg>
+          <span id="config-callout-text" class="font-arial text-[16px] leading-[1.3]"></span>
+        </a>
       </div>
-      
-      <!-- Footer Section -->
-      <footer class="px-6 md:px-10 pt-12 md:pt-16 pb-8 md:pb-10 pr-6 md:pr-10 lg:pr-40 border-t border-gray-100">
-        <div class="max-w-content">
-          <div id="footer-links-container" class="flex gap-4 md:gap-5 items-start">
-            <!-- Footer links will be populated by JavaScript -->
-          </div>
-        </div>
-      </footer>
-      
-    </div>
-    
-    <!-- Right Image Container - Fixed/Sticky -->
-    <div class="flex-1 lg:h-screen lg:sticky lg:top-0 bg-primary-500 order-first lg:order-last">
-      <!-- Carousel Layout (default to 2xl) -->
-      <div class="h-80 md:h-96 lg:h-full relative overflow-hidden 2xl:hidden" x-data="imageCarousel">
-        <!-- Image Carousel Container -->
-        <div class="absolute inset-0 flex" 
-             :style="`transform: translateX(-${currentIndex * 100}%)`">
-          <!-- Image slides will be populated by JavaScript -->
-          <template x-for="(image, index) in images" :key="index">
-            <div class="w-full h-full flex-shrink-0 bg-cover bg-center flex items-center justify-center relative"
-                 x-data="{ imageLoaded: false }"
-                 :style="imageLoaded ? `background-image: url('${image.url}')` : ''">
-              
-              <!-- Loading spinner -->
-              <div x-show="!imageLoaded" class="flex items-center justify-center">
-                <div class="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent opacity-60"></div>
-              </div>
-              
-              <!-- Hidden image to detect load completion -->
-              <img :src="image.url" 
-                   :alt="image.alt"
-                   @load="imageLoaded = true"
-                   @error="imageLoaded = true"
-                   class="hidden">
-            </div>
-          </template>
-        </div>
+
+      <div class="max-w-[948px] mt-5 md:mt-6">
+        <h1 class="font-semibold text-[36px] md:text-[48px] lg:text-[64px] leading-[1.05] text-black tracking-[-0.01em]" data-content="hero.intro.text1"></h1>
       </div>
-      
-      <!-- Side-by-side Layout (2xl and above) -->
-      <div class="hidden 2xl:flex h-full side-by-side-images" x-data="sideBySideImages">
-        <!-- First Image -->
-        <div class="w-1/2 h-full relative overflow-hidden image-left">
-          <div class="w-full h-full bg-cover bg-center flex items-center justify-center relative"
-               x-data="{ imageLoaded: false }"
-               :style="imageLoaded ? `background-image: url('${firstImage?.url || ''}')` : ''">
-            
-            <!-- Loading spinner -->
-            <div x-show="!imageLoaded" class="flex items-center justify-center">
-              <div class="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent opacity-60"></div>
-            </div>
-            
-            <!-- Hidden image to detect load completion -->
-            <img :src="firstImage?.url || ''" 
-                 :alt="firstImage?.alt || ''"
-                 @load="imageLoaded = true"
-                 @error="imageLoaded = true"
-                 class="hidden">
-          </div>
-        </div>
-        
-        <!-- Second Image -->
-        <div class="w-1/2 h-full relative overflow-hidden">
-          <div class="w-full h-full bg-cover bg-center flex items-center justify-center relative"
-               x-data="{ imageLoaded: false }"
-               :style="imageLoaded ? `background-image: url('${secondImage?.url || ''}')` : ''">
-            
-            <!-- Loading spinner -->
-            <div x-show="!imageLoaded" class="flex items-center justify-center">
-              <div class="animate-spin rounded-full h-8 w-8 border-2 border-white border-t-transparent opacity-60"></div>
-            </div>
-            
-            <!-- Hidden image to detect load completion -->
-            <img :src="secondImage?.url || ''" 
-                 :alt="secondImage?.alt || ''"
-                 @load="imageLoaded = true"
-                 @error="imageLoaded = true"
-                 class="hidden">
-          </div>
-        </div>
+      <div class="max-w-[400px] mt-5 md:mt-6 space-y-5 md:space-y-6">
+        <p class="text-[18px] md:text-[20px] leading-[1.4] text-black" data-content="hero.intro.text2"></p>
+        <a href="#" onclick="event.preventDefault(); Alpine.store('contactModal').openModal()" class="font-arial font-semibold text-[18px] md:text-[20px] leading-[1.3] text-primary-500 underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-primary-700 transition-colors inline-block">Check availability</a>
       </div>
     </div>
-    
   </div>
 
-  <!-- Contact Modal -->
-  <div x-data="contactModal" x-cloak>
-    <!-- Modal -->
-    <div 
-      x-show="$store.contactModal.open" 
-      x-transition:enter="transition-all ease-out duration-300"
-      x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="transition-all ease-in duration-200"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      class="modal-container"
-      @click="if (!submitting && !success) closeModal()"
-    >
-      <div class="modal-content" @click.stop role="dialog" aria-modal="true" aria-labelledby="modal-title">
-        <!-- Close Button -->
-        <button 
-          type="button"
-          @click="closeModal()"
-          :disabled="submitting || success"
-          :class="(submitting || success) ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'"
-          class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center z-10"
-          aria-label="Close modal"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="20" height="20" class="text-primary-500">
-            <!-- Top-left to bottom-right diagonal -->
-            <rect x="1" y="1" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="4" y="4" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="7" y="7" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="10" y="10" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="13" y="13" width="2.5" height="2.5" fill="currentColor"/>
-            
-            <!-- Top-right to bottom-left diagonal -->
-            <rect x="13" y="1" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="10" y="4" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="4" y="10" width="2.5" height="2.5" fill="currentColor"/>
-            <rect x="1" y="13" width="2.5" height="2.5" fill="currentColor"/>
-          </svg>
-        </button>
-        
-        <!-- Modal Content -->
-        <div class="p-6 md:p-10 space-y-8 md:space-y-10">
-          <!-- Header -->
-          <div class="space-y-6 md:space-y-8">
-            <!-- Icon -->
-            <div class="w-12 md:w-14 h-12 md:h-14 flex items-center justify-center" id="modal-icon">
-              <!-- Icon will be populated by JavaScript -->
-            </div>
-            
-            <!-- Heading -->
-            <div class="space-y-4 md:space-y-5">
-              <div class="space-y-2 md:space-y-3">
-                <h3 class="font-arial font-medium text-[24px] md:text-[28px] leading-[1.3] text-black" id="modal-title">
-                  <!-- Title will be populated by JavaScript -->
-                </h3>
-                <p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-black" id="modal-description">
-                  <!-- Description will be populated by JavaScript -->
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <!-- Form -->
-          <form @submit="submitForm($event)" class="space-y-0">
-            <!-- Hidden field for talk selection -->
-            <input type="hidden" name="selectedTalk" id="selectedTalk" value="">
-            
-            <!-- Name Field -->
-            <div class="relative">
-              <input 
-                type="text" 
-                id="name" 
-                name="name" 
-                required
-                placeholder="Name"
-                :disabled="submitting || success"
-                :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''"
-                class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600"
-                style="box-shadow: inset 0 0 0 1px #D1D5DB;"
-                onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';"
-                onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"
-              >
-            </div>
-            
-            <!-- Email Field -->
-            <div class="relative" style="margin-top: 12px;">
-              <input 
-                type="email" 
-                id="email" 
-                name="email" 
-                required
-                placeholder="Work e-mail"
-                :disabled="submitting || success"
-                :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''"
-                class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600"
-                style="box-shadow: inset 0 0 0 1px #D1D5DB;"
-                onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';"
-                onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"
-              >
-            </div>
-            
-            <!-- Phone Field -->
-            <div class="relative" style="margin-top: 12px;">
-              <input 
-                type="tel" 
-                id="phone" 
-                name="phone" 
-                placeholder="Phone"
-                :disabled="submitting || success"
-                :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''"
-                class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600"
-                style="box-shadow: inset 0 0 0 1px #D1D5DB;"
-                onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';"
-                onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"
-              >
-            </div>
-
-            <!-- Submit Button -->
-            <button type="submit" 
-                    :disabled="submitting || success"
-                    :class="submitting || success ? 'bg-primary-600' : 'bg-primary-500 hover:bg-primary-600'"
-                    class="w-full h-11 md:h-12 rounded-md flex items-center justify-center gap-2 px-6 transition-colors" 
-                    style="margin-top: 20px;">
-              
-              <!-- Default state -->
-              <span x-show="!submitting && !success" class="font-arial font-medium text-[18px] md:text-[20px] leading-[1.4] text-white">Send request</span>
-              <div x-show="!submitting && !success" class="w-7 md:w-8 h-7 md:h-8 flex items-center justify-center transform rotate-180 scale-y-[-1]" id="submit-icon">
-                <!-- Submit icon will be populated by JavaScript -->
-              </div>
-              
-              <!-- Submitting state with spinner -->
-              <div x-show="submitting" class="animate-spin rounded-full h-4 md:h-5 w-4 md:w-5 border-2 border-white border-t-transparent"></div>
-              
-              <!-- Success state -->
-              <span x-show="success" class="font-arial text-[18px] md:text-[20px] leading-[1.4] text-white">Success!</span>
-            </button>
-          </form>
-
-          <!-- Subtitle moved below submit button -->
-          <div style="margin-top: 20px;">
-            <p class="font-arial text-[16px] md:text-[18px] leading-[1.3] text-gray-500 text-center" id="modal-subtitle-main">
-              No commitment before our initial chat.
-            </p>
-          </div>
+  <!-- 2. HERO IMAGE + TRUSTED BY (image background with white card overlay) -->
+  <div id="hero-image-section" class="relative max-w-[1440px] mx-auto">
+    <!-- Background image -->
+    <div id="hero-image" class="w-full h-64 md:h-80 lg:h-[600px] bg-cover bg-center bg-gray-200"></div>
+    <!-- Trusted by card — overlays bottom-left on desktop, stacks below on mobile -->
+    <div id="social-proof-section" class="lg:absolute lg:bottom-0 lg:left-0 lg:right-0">
+      <div class="max-w-none lg:max-w-[1120px] w-full lg:mx-auto lg:px-10">
+        <div class="bg-white px-6 md:px-10 py-6 lg:ml-[-24px] lg:pl-[34px] lg:pr-[34px] lg:w-[488px]">
+          <div id="social-proof-content"></div>
         </div>
       </div>
     </div>
   </div>
 
+  <!-- 3. TALKS + IMAGE + VALUE PROPS (overlapping image on desktop) -->
+  <div class="bg-gray-50 relative z-10 overflow-hidden">
+    <div id="talks-section" class="relative z-10">
+      <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 py-16 md:py-24">
+        <div id="talks-container"></div>
+      </div>
+    </div>
+
+    <div id="value-props-section" class="relative z-10">
+      <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10">
+        <div class="h-px bg-gray-200 w-full"></div>
+      </div>
+      <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-16 md:pb-24">
+        <div id="value-props-content">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. BOOKING CTA + FOOTER -->
+  <div id="booking-section" class="bg-primary-500 relative z-10">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-12">
+      <div id="booking-content" class="text-center space-y-5"></div>
+    </div>
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pb-12">
+      <div class="border-t border-white/20 pt-12"></div>
+      <div id="footer-placeholder"></div>
+    </div>
+  </div>
   <script type="module" src="/scripts/main.js"></script>
-  
-  <style>
-    [x-cloak] { display: none !important; }
-  </style>
 </body>
 </html>
-<!-- Build verification timestamp: 2024-08-17 12:45 --> 
