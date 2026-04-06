@@ -21,7 +21,7 @@ export default async function handler(req, res) {
     console.log('Request body:', req.body);
     console.log('Environment check - RESEND_API_KEY exists:', !!process.env.RESEND_API_KEY);
 
-    const { name, email, phone, selectedTalk } = req.body;
+    const { name, email, phone, selectedTalk, eventType, message } = req.body;
 
     // Validate required fields
     if (!name || !email) {
@@ -51,6 +51,8 @@ export default async function handler(req, res) {
             <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${email}" style="color: #0D3DFF;">${email}</a></p>
             ${phone ? `<p style="margin: 10px 0;"><strong>Phone:</strong> <a href="tel:${phone}" style="color: #0D3DFF;">${phone}</a></p>` : ''}
             ${selectedTalk ? `<p style="margin: 10px 0;"><strong>Selected Talk:</strong> ${selectedTalk}</p>` : ''}
+            ${eventType ? `<p style="margin: 10px 0;"><strong>Event Type:</strong> ${eventType}</p>` : ''}
+            ${message ? `<p style="margin: 10px 0;"><strong>Message:</strong> ${message}</p>` : ''}
             <p style="margin: 10px 0;"><strong>Submitted at:</strong> ${new Date().toLocaleString()}</p>
           </div>
           <div style="margin-top: 20px; padding: 15px; background-color: #e8f2ff; border-radius: 8px;">
