@@ -67,15 +67,15 @@ function injectNavigation() {
   }
 
   placeholder.outerHTML = `
-    <header class="relative bg-gray-50">
+    <header class="relative">
       <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 h-20 md:h-[104px] flex items-center justify-between">
         <a href="/" class="flex items-center">${logoSvg}</a>
         <nav class="flex items-center gap-6">
           ${(nav?.links || []).map(link =>
-            `<a ${smoothScrollLink(link.url)} class="font-arial font-semibold text-[16px] text-[#707070] hover:text-black transition-colors">${link.text}</a>`
+            `<a ${smoothScrollLink(link.url)} class="font-arial font-semibold text-[16px] text-black/55 hover:text-black transition-colors">${link.text}</a>`
           ).join('')}
           <a href="#" onclick="event.preventDefault(); Alpine.store('contactModal').openModal()"
-             class="hidden md:inline font-arial font-semibold text-[16px] text-primary-500 underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-primary-700 transition-colors">
+             class="hidden md:inline font-arial font-semibold text-[16px] text-black underline decoration-solid decoration-[1px] underline-offset-[3px] decoration-skip-ink-none hover:opacity-70 transition-opacity">
             ${nav?.ctaText || 'Check availability'}
           </a>
         </nav>
@@ -123,7 +123,7 @@ function injectModal() {
           <button type="button" @click="closeModal()" :disabled="submitting || success"
             :class="(submitting || success) ? 'opacity-30 cursor-not-allowed' : 'hover:bg-gray-50'"
             class="absolute top-4 right-4 w-10 h-10 flex items-center justify-center z-10" aria-label="Close modal">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="20" height="20" class="text-primary-500">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18" width="20" height="20" class="text-black">
               <rect x="1" y="1" width="2.5" height="2.5" fill="currentColor"/>
               <rect x="4" y="4" width="2.5" height="2.5" fill="currentColor"/>
               <rect x="7" y="7" width="2.5" height="2.5" fill="currentColor"/>
@@ -148,24 +148,24 @@ function injectModal() {
             <form @submit="submitForm($event)" class="space-y-0">
               <input type="hidden" name="selectedTalk" id="selectedTalk" value="">
               <div class="relative">
-                <input type="text" id="name" name="name" required placeholder="Name" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
+                <input type="text" id="name" name="name" required placeholder="Name" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-black focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#000000';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
               </div>
               <div class="relative" style="margin-top: 12px;">
-                <input type="email" id="email" name="email" required placeholder="Work e-mail" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
+                <input type="email" id="email" name="email" required placeholder="Work e-mail" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-black focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#000000';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
               </div>
               <div class="relative" style="margin-top: 12px;">
-                <input type="tel" id="phone" name="phone" placeholder="Phone" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
+                <input type="tel" id="phone" name="phone" placeholder="Phone" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 py-0 border-2 border-transparent rounded-md focus:border-black focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#000000';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
               </div>
               <div class="relative" style="margin-top: 12px;">
-                <select id="eventType" name="eventType" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 pr-10 py-0 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black bg-white appearance-none" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
+                <select id="eventType" name="eventType" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full h-11 md:h-12 px-3 pr-10 py-0 border-2 border-transparent rounded-md focus:border-black focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black bg-white appearance-none" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#000000';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';">
                   <option value="" class="text-gray-600">Event type</option>
                 </select>
                 <svg class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </div>
               <div class="relative" style="margin-top: 12px;">
-                <textarea id="message" name="message" rows="3" placeholder="Tell us about your event (optional)" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full px-3 py-2.5 border-2 border-transparent rounded-md focus:border-primary-500 focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600 resize-none" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#3B82F6';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"></textarea>
+                <textarea id="message" name="message" rows="3" placeholder="Tell us about your event (optional)" :disabled="submitting || success" :class="(submitting || success) ? 'opacity-50 cursor-not-allowed' : ''" class="w-full px-3 py-2.5 border-2 border-transparent rounded-md focus:border-black focus:outline-none transition-all font-arial text-[18px] md:text-[20px] text-black placeholder-gray-600 resize-none" style="box-shadow: inset 0 0 0 1px #D1D5DB;" onfocus="this.style.boxShadow='none'; this.style.borderColor='#000000';" onblur="this.style.boxShadow='inset 0 0 0 1px #D1D5DB'; this.style.borderColor='transparent';"></textarea>
               </div>
-              <button type="submit" :disabled="submitting || success" :class="submitting || success ? 'bg-primary-600' : 'bg-primary-500 hover:bg-primary-600'" class="w-full h-11 md:h-12 rounded-md flex items-center justify-center gap-2 px-6 transition-colors" style="margin-top: 20px;">
+              <button type="submit" :disabled="submitting || success" :class="submitting || success ? 'bg-neutral-700' : 'bg-black hover:bg-neutral-800'" class="w-full h-11 md:h-12 rounded-md flex items-center justify-center gap-2 px-6 transition-colors" style="margin-top: 20px;">
                 <span x-show="!submitting && !success" class="font-arial font-semibold text-[18px] md:text-[20px] leading-[1.4] text-white">Send request</span>
                 <div x-show="!submitting && !success" class="w-7 md:w-8 h-7 md:h-8 flex items-center justify-center transform rotate-180 scale-y-[-1]" id="submit-icon"></div>
                 <div x-show="submitting" class="animate-spin rounded-full h-4 md:h-5 w-4 md:w-5 border-2 border-white border-t-transparent"></div>
@@ -198,7 +198,7 @@ function injectStickyCta() {
       <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 flex items-center justify-between gap-4">
         <span id="sticky-cta-text" class="font-arial font-semibold text-[16px] md:text-[18px] leading-[1.3] text-black hidden md:block"></span>
         <button @click="$store.contactModal.openModal()"
-                class="w-full md:w-auto bg-primary-500 hover:bg-primary-700 text-white font-arial font-semibold text-[16px] md:text-[18px] leading-[1.4] px-6 py-2.5 rounded-md transition-colors">
+                class="w-full md:w-auto bg-black hover:bg-neutral-800 text-white font-arial font-semibold text-[16px] md:text-[18px] leading-[1.4] px-6 py-2.5 rounded-md transition-colors">
           Check availability
         </button>
       </div>
@@ -296,7 +296,10 @@ function populateHome() {
   if (talksContainer && siteContent.talks) {
     let talksHtml = ''
     if (tp?.title) {
-      talksHtml += `<h2 class="font-semibold text-[28px] md:text-[40px] leading-[1.1] text-black mb-10 md:mb-14">${tp.title}</h2>`
+      talksHtml += `<div class="mb-10 md:mb-14 space-y-3 md:space-y-4">
+        <h2 class="font-semibold text-[28px] md:text-[40px] leading-[1.1] text-black">${tp.title}</h2>
+        ${tp.customTalkText ? `<p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-[#555] max-w-[600px]">${tp.customTalkText} <a href="#" onclick="event.preventDefault(); Alpine.store('contactModal').openModal()" class="font-semibold text-black underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-black/60 transition-colors">${tp.customTalkCta || 'Send a request'}</a></p>` : ''}
+      </div>`
     }
     talksHtml += `<div class="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 gap-y-10 md:gap-y-20 relative">`
     const nonCustomTalks = siteContent.talks.filter(t => !t.isCustom)
@@ -304,7 +307,7 @@ function populateHome() {
     talksHtml += nonCustomTalks.map((talk, i) => `
       <div class="space-y-4 talk-card ${gridPos[i] || ''}" data-talk-id="${talk.id}">
         ${talk.modal?.icon ? `<div class="w-14 h-14 flex items-center justify-center talk-icon">${talk.modal.icon}</div>` : ''}
-        <a href="#" class="talk-action-btn block font-semibold text-[20px] md:text-[24px] leading-[1.3] text-black underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-primary-500 transition-colors" data-talk-id="${talk.id}">${talk.title}</a>
+        <h3><a href="#" class="talk-action-btn block font-semibold text-[20px] md:text-[24px] leading-[1.3] text-black underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-black/60 transition-colors" data-talk-id="${talk.id}">${talk.title}</a></h3>
         <p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-black max-w-[480px]">${talk.description}</p>
         <div class="flex flex-wrap items-start gap-4" x-data data-alpine-inject>
           ${(talk.tags || []).map(tag => `
@@ -327,15 +330,6 @@ function populateHome() {
         </div>
       </div>
     `).join('')
-    // Custom talk CTA — positioned in col-2/row-3 of the grid
-    if (tp?.customTalkText) {
-      talksHtml += `
-        <div class="md:col-start-2 md:row-start-3 space-y-4 pt-2 md:pt-0">
-          <div class="h-px bg-gray-200 w-full mb-2 md:mb-0"></div>
-          <p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-[#555] max-w-[480px]">${tp.customTalkText}</p>
-          <a href="#" onclick="event.preventDefault(); Alpine.store('contactModal').openModal()" class="font-arial font-semibold text-[18px] md:text-[20px] leading-[1.3] text-black underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-primary-500 transition-colors inline-block">${tp.customTalkCta || 'Send a request'}</a>
-        </div>`
-    }
     talksHtml += `</div>`
     talksContainer.innerHTML = talksHtml
     // Initialize Alpine on newly injected tooltip elements
@@ -355,7 +349,7 @@ function populateHome() {
     vpHtml += `<div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">`
     vpHtml += (vp.items || []).map((item, i) => `
       <div class="space-y-4">
-        <div class="w-10 h-10 rounded-full bg-primary-500 text-white flex items-center justify-center font-semibold text-[16px]">${i + 1}</div>
+        <div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-semibold text-[16px]">${i + 1}</div>
         <h3 class="font-semibold text-[20px] md:text-[24px] leading-[1.2] text-black">${item.title}</h3>
         <p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-black max-w-[480px]">${item.description}</p>
       </div>
@@ -415,15 +409,61 @@ function populateBookPage() {
   const bp = siteContent.bookPage
   if (!bp) return
 
-  const title = document.getElementById('book-page-title')
-  const subtitle = document.getElementById('book-page-subtitle')
-  const ctaText = document.getElementById('book-page-cta-text')
-  const downloadLink = document.getElementById('book-page-download')
+  const setText = (id, value) => { const el = document.getElementById(id); if (el && value) el.textContent = value }
 
-  if (title && bp.title) title.textContent = bp.title
-  if (subtitle && bp.subtitle) subtitle.textContent = bp.subtitle
-  if (ctaText && bp.downloadCtaText) ctaText.textContent = bp.downloadCtaText
-  if (downloadLink && bp.downloadUrl) downloadLink.href = bp.downloadUrl
+  setText('book-page-eyebrow', bp.eyebrow)
+  setText('book-page-title', bp.title)
+  setText('book-page-subtitle', bp.subtitle)
+  setText('book-toc-title', bp.tocTitle)
+  setText('book-author-bio', bp.authorBio)
+
+  // Cover image
+  const cover = document.getElementById('book-cover-image')
+  if (cover && bp.coverImage && bp.coverImage.url) {
+    cover.src = bp.coverImage.url
+    if (bp.coverImage.alt) cover.alt = bp.coverImage.alt
+  }
+
+  // Email form copy
+  if (bp.form) {
+    setText('book-form-heading', bp.form.heading)
+  }
+
+  // Pull-quote band
+  if (bp.quote) {
+    setText('book-quote-text', bp.quote.text)
+    setText('book-quote-attribution', bp.quote.attribution)
+  }
+
+  // TOC intro
+  setText('book-toc-intro', bp.tocIntro)
+
+  // "A look inside" carousel
+  if (bp.gallery) {
+    setText('book-gallery-title', bp.gallery.title)
+    setText('book-gallery-subtitle', bp.gallery.subtitle)
+    const galleryContainer = document.getElementById('book-gallery')
+    if (galleryContainer && bp.gallery.items) {
+      const buildSlide = (item, i, clone) => {
+        const inner = item && item.url
+          ? `<img src="${item.url}" alt="${clone ? '' : (item.alt || '')}" class="w-full h-full object-cover" loading="lazy" decoding="async">`
+          : `<div class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400 font-arial text-[16px] md:text-[18px]">Image ${i + 1}</div>`
+        return `<figure class="shrink-0 w-[440px] sm:w-[680px] lg:w-[920px]"${clone ? ' aria-hidden="true"' : ''}>
+          <div class="aspect-video w-full overflow-hidden rounded-lg bg-gray-200">${inner}</div>
+          ${item && item.caption ? `<figcaption class="font-arial text-[14px] md:text-[15px] leading-[1.4] text-gray-500 mt-3">${item.caption}</figcaption>` : ''}
+        </figure>`
+      }
+      const originals = bp.gallery.items.map((item, i) => buildSlide(item, i, false)).join('')
+      const clones = bp.gallery.items.map((item, i) => buildSlide(item, i, true)).join('')
+      galleryContainer.innerHTML = originals + clones
+    }
+  }
+
+  // Closing CTA
+  if (bp.closingCta) {
+    setText('book-closing-heading', bp.closingCta.heading)
+    setText('book-closing-subheading', bp.closingCta.subheading)
+  }
 
   // Pitch paragraphs
   const pitchContainer = document.getElementById('book-page-pitch')
@@ -433,15 +473,34 @@ function populateBookPage() {
     ).join('')
   }
 
-  // Table of contents
-  const tocContainer = document.getElementById('book-page-toc')
-  if (tocContainer && bp.toc) {
-    tocContainer.innerHTML = bp.toc.map((item, i) =>
-      `<div class="flex items-baseline gap-4 py-3 ${i < bp.toc.length - 1 ? 'border-b border-gray-100' : ''}">
-        <span class="font-arial text-[14px] md:text-[16px] text-gray-400 flex-shrink-0">${String(i + 1).padStart(2, '0')}</span>
-        <span class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-black">${item}</span>
+  // Benefits ("What you'll take away")
+  const benefitsTitle = document.getElementById('book-benefits-title')
+  if (benefitsTitle && bp.benefits && bp.benefits.title) benefitsTitle.textContent = bp.benefits.title
+  const benefitsContainer = document.getElementById('book-benefits')
+  if (benefitsContainer && bp.benefits && bp.benefits.items) {
+    benefitsContainer.innerHTML = bp.benefits.items.map((item, i) =>
+      `<div class="space-y-4">
+        <div class="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center font-semibold text-[16px]">${i + 1}</div>
+        <h3 class="font-semibold text-[20px] md:text-[24px] leading-[1.2] text-black">${item.title}</h3>
+        <p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-black max-w-[480px]">${item.description}</p>
       </div>`
     ).join('')
+  }
+
+  // Table of contents (supports plain strings or { title, summary } objects)
+  const tocContainer = document.getElementById('book-page-toc')
+  if (tocContainer && bp.toc) {
+    tocContainer.innerHTML = bp.toc.map((item, i) => {
+      const title = typeof item === 'string' ? item : item.title
+      const summary = typeof item === 'object' && item ? item.summary : ''
+      return `<div class="flex items-baseline gap-4 md:gap-6 py-5 ${i < bp.toc.length - 1 ? 'border-b border-gray-100' : ''}">
+        <span class="font-arial text-[14px] md:text-[16px] text-gray-400 flex-shrink-0 w-6">${String(i + 1).padStart(2, '0')}</span>
+        <div class="space-y-1">
+          <span class="block font-arial font-medium text-[18px] md:text-[22px] leading-[1.3] text-black">${title}</span>
+          ${summary ? `<span class="block font-arial text-[15px] md:text-[17px] leading-[1.4] text-gray-500">${summary}</span>` : ''}
+        </div>
+      </div>`
+    }).join('')
   }
 
   // Endorsements
@@ -611,7 +670,7 @@ function populateBookingCta() {
 
   let html = `<h2 class="font-semibold text-[28px] md:text-[40px] leading-[1.1] text-white">${siteContent.booking.ctaText}</h2>`
   if (siteContent.booking.ctaDescription) {
-    html += `<p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-[#ccd6ff] max-w-[560px] mx-auto">${siteContent.booking.ctaDescription}</p>`
+    html += `<p class="font-arial text-[18px] md:text-[20px] leading-[1.3] text-white/70 max-w-[560px] mx-auto">${siteContent.booking.ctaDescription}</p>`
   }
   html += `<div>
     <a href="#" onclick="event.preventDefault(); Alpine.store('contactModal').openModal()" class="font-arial font-semibold text-[18px] md:text-[20px] leading-[1.3] text-white underline decoration-solid underline-offset-[3px] decoration-skip-ink-none hover:text-white/80 transition-colors">Check availability</a>
@@ -771,6 +830,37 @@ Alpine.data('contactModal', () => ({
   }
 }))
 
+Alpine.data('bookForm', () => ({
+  submitting: false,
+  success: false,
+  error: false,
+  async submit(event) {
+    event.preventDefault()
+    if (this.submitting || this.success) return
+    this.submitting = true
+    this.error = false
+    const form = event.target
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(form)
+      })
+      const result = await response.json().catch(() => ({}))
+      if (!response.ok || (result && result.status === 'error')) {
+        throw new Error((result && result.message) || `Request failed (${response.status})`)
+      }
+      this.submitting = false
+      this.success = true
+      form.reset()
+    } catch (e) {
+      console.error('Book form submission error:', e)
+      this.submitting = false
+      this.error = true
+    }
+  }
+}))
+
 Alpine.data('tooltip', () => ({
   show: false, content: '', icon: '', isMobile: false,
   init() {
@@ -819,21 +909,17 @@ Alpine.data('stickyCta', () => ({
   visible: false,
   init() {
     const heroSection = document.getElementById('hero-section')
-    const bookingSection = document.getElementById('booking-section')
-    let pastHero = false
-    let atBottom = false
-
-    if (heroSection) {
-      const heroObs = new IntersectionObserver(([entry]) => { pastHero = !entry.isIntersecting; this.visible = pastHero && !atBottom }, { threshold: 0 })
-      heroObs.observe(heroSection)
+    const update = () => {
+      // Visible once the hero has scrolled out of view...
+      const pastHero = heroSection ? (heroSection.getBoundingClientRect().bottom <= 0) : (window.scrollY > 300)
+      // ...and hidden only when the user actually reaches the bottom of the page.
+      const pageHeight = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)
+      const atBottom = (window.innerHeight + window.scrollY) >= (pageHeight - 160)
+      this.visible = pastHero && !atBottom
     }
-    if (bookingSection) {
-      const bottomObs = new IntersectionObserver(([entry]) => { atBottom = entry.isIntersecting; this.visible = pastHero && !atBottom }, { threshold: 0.1 })
-      bottomObs.observe(bookingSection)
-    }
-    if (!heroSection) {
-      window.addEventListener('scroll', () => { this.visible = window.scrollY > 300 }, { passive: true })
-    }
+    update()
+    window.addEventListener('scroll', update, { passive: true })
+    window.addEventListener('resize', update, { passive: true })
   }
 }))
 

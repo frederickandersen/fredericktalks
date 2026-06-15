@@ -18,6 +18,18 @@
   font-display: swap;
 }
 
+/* Signifier (Klim) — used for all headings. Only the Regular weight is available,
+   so the face is claimed across the full weight range: this lets existing
+   font-weight utilities on headings (e.g. font-semibold) render real Signifier
+   glyphs instead of a synthetic faux-bold. */
+@font-face {
+  font-family: 'Signifier';
+  src: url('../assets/fonts/Signifier-Regular.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   body {
     font-family: 'Familjen Grotesk', 'Arial', 'Helvetica', sans-serif;
@@ -56,7 +68,7 @@
 
   /* Custom Tooltip Styles */
   .custom-tooltip {
-    @apply absolute z-[60] px-3 md:px-4 py-2 md:py-3 text-[16px] md:text-[18px] font-arial text-white bg-primary-500;
+    @apply absolute z-[60] px-3 md:px-4 py-2 md:py-3 text-[16px] md:text-[18px] font-arial text-white bg-black;
     top: calc(100% + 8px);
     left: 50%;
     transform: translateX(-50%);
@@ -93,5 +105,56 @@
       font-size: 19px;
       line-height: 1.3;
     }
+  }
+}
+
+/* Heading typeface — change this one declaration to restyle every heading site-wide.
+   The [class] selectors raise specificity above per-heading font utilities like
+   .font-arial, so every heading uses Signifier regardless of its utility classes. */
+h1, h2, h3, h4, h5, h6,
+h1[class], h2[class], h3[class], h4[class], h5[class], h6[class] {
+  font-family: 'Signifier', 'Familjen Grotesk', Georgia, serif;
+}
+
+/* All underlined links use a consistent 1px underline */
+a {
+  text-decoration-thickness: 1px;
+}
+
+/* Hide scrollbar for CSS scroll-snap carousels */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* "A look inside" — CSS-only infinite looping carousel (marquee) */
+.book-marquee {
+  overflow: hidden;
+}
+.book-marquee-track {
+  display: flex;
+  gap: 4px;
+  width: max-content;
+  animation: book-marquee 50s linear infinite;
+}
+/* Pause on hover so a slide can be inspected */
+.book-marquee:hover .book-marquee-track {
+  animation-play-state: paused;
+}
+@keyframes book-marquee {
+  from { transform: translateX(0); }
+  /* Track holds two identical sets; -2px accounts for the 4px gap at the seam */
+  to { transform: translateX(calc(-50% - 2px)); }
+}
+/* Respect reduced-motion: stop the loop, allow manual horizontal scroll instead */
+@media (prefers-reduced-motion: reduce) {
+  .book-marquee {
+    overflow-x: auto;
+  }
+  .book-marquee-track {
+    animation: none;
   }
 }

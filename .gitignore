@@ -52,3 +52,5 @@ pids
 
 # Yarn Integrity file
 .yarn-integrity 
+# Claude Code local files
+.claude/

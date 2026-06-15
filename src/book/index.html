@@ -3,56 +3,101 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Design Engineering Gap — Free Book by Frederick Andersen</title>
-  <meta name="description" content="Download The Design Engineering Gap, a free practical guide by Frederick Andersen on closing the space between design and code.">
+  <title>Design Engineering: The Leadership Playbook for Moving Your Team Upstream. Free book by Frederick Andersen</title>
+  <meta name="description" content="A free book by Frederick Andersen on turning designers into design engineers who ship production code and moving your design team upstream. One person. One year. One bet.">
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💬</text></svg>">
   <style>[x-cloak] { display: none !important; }</style>
 </head>
-<body class="bg-gray-50 text-black antialiased overflow-x-hidden">
-  <div id="nav-placeholder"></div>
+<body class="bg-white text-black antialiased overflow-x-hidden">
+  <!-- Colored hero band — sits behind the nav, the hero, and the top half of the hero image -->
+  <div class="relative pb-32 md:pb-40 lg:pb-[360px]" style="background-color: #dbe04a">
+    <div id="nav-placeholder"></div>
 
-  <!-- Book Hero: Split Layout -->
-  <div class="flex flex-col md:flex-row max-w-container mx-auto px-6 md:px-10 pt-10 md:pt-16 pb-12 md:pb-20 gap-10 md:gap-16">
-    <!-- Left: Book Info -->
-    <div class="flex-1 space-y-6 md:space-y-8">
-      <div class="space-y-3 md:space-y-4">
-        <span class="font-arial text-[14px] md:text-[16px] leading-[1.4] text-primary-500 font-medium uppercase tracking-wide">Free Book</span>
-        <h1 id="book-page-title" class="font-times text-[36px] md:text-[48px] leading-[1.1] text-black">The Design Engineering Gap</h1>
-        <p id="book-page-subtitle" class="font-arial text-body md:text-[24px] leading-[1.3] text-gray-500">A practical guide to closing the space between design and code.</p>
+    <!-- Hero: heading + email form (image follows below) -->
+    <div id="hero-section" class="relative">
+      <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-8 md:pt-10 pb-10 md:pb-20">
+        <div class="max-w-[640px]">
+          <span id="book-page-eyebrow" class="font-arial text-[14px] md:text-[16px] leading-[1.4] text-black font-medium uppercase tracking-wide">Free book</span>
+          <h1 id="book-page-title" class="font-semibold text-[40px] md:text-[56px] lg:text-[64px] leading-[1.03] text-black mt-5 md:mt-6">Design Engineering</h1>
+          <p id="book-page-subtitle" class="font-arial text-[24px] md:text-[32px] leading-[1.25] text-black/70 mt-2">The leadership playbook for moving your team upstream.</p>
+
+          <div id="book-page-pitch" class="space-y-4 max-w-[600px] mt-5 md:mt-6">
+            <!-- Populated by JS -->
+          </div>
+
+          <!-- Inline Kit (email capture) form -->
+          <div x-data="bookForm()" class="space-y-3 max-w-[480px] mt-8 md:mt-10">
+            <p id="book-form-heading" class="font-arial text-[12px] md:text-[13px] font-semibold uppercase tracking-[0.09em] text-black/70">Get your free copy</p>
+            <form x-show="!success" action="https://app.kit.com/forms/9533551/subscriptions" method="post" @submit="submit"
+                  class="flex flex-col sm:flex-row gap-3">
+              <label for="book-email" class="sr-only">Email address</label>
+              <input id="book-email" type="email" name="email_address" required autocomplete="email"
+                     placeholder="you@company.com"
+                     class="flex-1 min-w-0 font-arial text-[16px] md:text-[18px] leading-[1.4] px-5 py-3 rounded-md border border-black/15 bg-white text-black placeholder:text-gray-400 focus:outline-none focus:border-black transition-colors">
+              <button type="submit" :disabled="submitting"
+                      class="inline-flex items-center justify-center gap-2 bg-black hover:bg-neutral-800 disabled:opacity-60 disabled:cursor-not-allowed text-white font-arial font-semibold text-[18px] md:text-[20px] leading-[1.4] px-8 py-3 rounded-md transition-colors whitespace-nowrap">
+                <span x-text="submitting ? 'Sending…' : 'Send me the book'">Send me the book</span>
+              </button>
+            </form>
+            <div x-show="success" x-cloak class="rounded-md bg-black/5 px-4 py-3">
+              <p class="font-arial font-medium text-[16px] md:text-[18px] text-black">Check your inbox</p>
+              <p class="font-arial text-[15px] md:text-[16px] leading-[1.4] text-black mt-0.5">Confirm your email and your copy of the book is on its way.</p>
+            </div>
+            <p x-show="error" x-cloak class="font-arial text-[14px] leading-[1.4] text-red-700">Something went wrong. Please try again.</p>
+            <p x-show="!success" class="font-arial text-[13px] md:text-[14px] leading-[1.4] text-black/60">Six short chapters. No spam. Unsubscribe anytime.</p>
+          </div>
+        </div>
       </div>
+    </div>
+  </div>
 
-      <div id="book-page-pitch" class="space-y-4">
+  <!-- Hero image (overlaps the colored band above) -->
+  <div id="hero-image-section" class="relative z-10 max-w-[1440px] mx-auto -mt-32 md:-mt-40 lg:-mt-[360px]">
+    <img id="book-cover-image" src="/images/book-cover.jpg"
+         alt="Design Engineering: The Leadership Playbook for Moving Your Team Upstream by Frederick Andersen"
+         class="w-full h-64 md:h-80 lg:h-[720px] object-cover object-center"
+         loading="eager" decoding="async" fetchpriority="high">
+  </div>
+
+  <!-- What you'll take away -->
+  <div class="bg-white relative z-10">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 py-16 md:py-24">
+      <h2 id="book-benefits-title" class="font-semibold text-[28px] md:text-[40px] leading-[1.1] text-black mb-10 md:mb-14">What you'll take away</h2>
+      <div id="book-benefits" class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
         <!-- Populated by JS -->
       </div>
-
-      <a id="book-page-download" href="/the-design-engineering-gap.pdf" target="_blank" rel="noopener noreferrer"
-         class="inline-flex items-center gap-2 bg-primary-500 hover:bg-primary-700 text-white font-arial font-medium text-[18px] md:text-[20px] leading-[1.4] px-8 py-3 rounded-md transition-colors">
-        <span id="book-page-cta-text">Download free book</span>
-      </a>
     </div>
+  </div>
 
-    <!-- Right: Book Cover -->
-    <div class="flex-shrink-0 md:w-[320px] lg:w-[380px]">
-      <div class="image-placeholder bg-gray-200 rounded-md aspect-[3/4] w-full flex items-center justify-center">
-        <span>Book cover — The Design Engineering Gap by Frederick Andersen</span>
+  <!-- A look inside: full-width CSS marquee carousel -->
+  <div class="bg-white relative z-10 border-t border-gray-100">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-16 md:pt-24">
+      <h2 id="book-gallery-title" class="font-semibold text-[28px] md:text-[36px] leading-[1.2] text-black">A look inside</h2>
+      <p id="book-gallery-subtitle" class="font-arial text-body md:text-[20px] leading-[1.4] text-gray-500 mt-3">Spreads and diagrams from the book.</p>
+    </div>
+    <!-- CSS-only infinite carousel (marquee), spanning the full viewport width. Track duplicated by JS for a seamless loop. -->
+    <div class="book-marquee no-scrollbar mt-10 md:mt-12 pb-8 md:pb-10">
+      <div id="book-gallery" class="book-marquee-track">
+        <!-- Populated by JS (two identical sets for the loop) -->
       </div>
     </div>
   </div>
 
   <!-- Table of Contents -->
   <div class="bg-white relative z-10">
-    <div class="max-w-container mx-auto px-6 md:px-10 py-16 md:py-24">
-      <h2 class="font-times text-[28px] md:text-[36px] leading-[1.2] text-black mb-8 md:mb-10">What's inside</h2>
-      <div id="book-page-toc" class="space-y-4">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-8 md:pt-10 pb-16 md:pb-24">
+      <h2 id="book-toc-title" class="font-semibold text-[28px] md:text-[36px] leading-[1.2] text-black">What's inside</h2>
+      <p id="book-toc-intro" class="font-arial text-body md:text-[20px] leading-[1.4] text-gray-500 mt-3 mb-10 md:mb-12 max-w-[640px]">Six chapters. One year of real client work, distilled into a playbook you can start on Monday.</p>
+      <div id="book-page-toc" class="space-y-0 w-full">
         <!-- Populated by JS -->
       </div>
     </div>
   </div>
 
   <!-- Endorsements (hidden until populated) -->
-  <div id="book-endorsements-section" class="bg-gray-50 relative z-10 hidden">
-    <div class="max-w-container mx-auto px-6 md:px-10 py-16 md:py-24">
+  <div id="book-endorsements-section" class="bg-white relative z-10 hidden">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 py-16 md:py-24">
       <div id="book-endorsements-content">
         <!-- Populated by JS -->
       </div>
@@ -61,23 +106,51 @@
 
   <!-- Author Mini-Bio -->
   <div class="bg-white border-t border-gray-100 relative z-10">
-    <div class="max-w-container mx-auto px-6 md:px-10 py-16 md:py-24">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 py-16 md:py-24">
       <div class="flex flex-col md:flex-row items-start gap-6 md:gap-10">
         <div class="flex-shrink-0">
-          <div class="image-placeholder bg-gray-200 rounded-full w-20 h-20 md:w-24 md:h-24 flex items-center justify-center">
-            <span class="text-[12px]">Author</span>
-          </div>
+          <img src="/images/frederick-hero.png" alt="Frederick Andersen"
+               class="rounded-full w-40 h-40 md:w-48 md:h-48 object-cover bg-gray-200">
         </div>
         <div class="space-y-3">
           <h3 class="font-arial font-medium text-[20px] md:text-[24px] leading-[1.3] text-black">Frederick Andersen</h3>
-          <p id="book-author-bio" class="font-arial text-[16px] md:text-[18px] leading-[1.4] text-gray-500">Design studio founder, speaker, and author. Frederick builds AI-driven design systems at EDL.</p>
-          <a href="/about" class="font-arial font-medium text-[16px] md:text-[18px] text-primary-500 underline decoration-solid underline-offset-[3px] hover:text-primary-700 transition-colors">More about Frederick</a>
+          <p id="book-author-bio" class="font-arial text-[16px] md:text-[18px] leading-[1.4] text-black max-w-[460px]">Frederick runs EDL, a small design studio in Copenhagen. He writes and talks about design, engineering, and how teams build better products. He thinks the best work happens when the people who design it also build it.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <div id="footer-placeholder"></div>
+  <!-- Closing CTA + footer -->
+  <div id="booking-section" class="bg-black relative z-10">
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-12 text-center">
+      <h2 id="book-closing-heading" class="font-semibold text-[28px] md:text-[40px] leading-[1.15] text-white">Move your team upstream</h2>
+      <p id="book-closing-subheading" class="font-arial text-body md:text-[22px] leading-[1.4] text-white/70 mt-3 md:mt-4">Get the playbook free, straight to your inbox.</p>
+
+      <div x-data="bookForm()" class="mt-8 md:mt-10 max-w-[480px] mx-auto space-y-3">
+        <form x-show="!success" action="https://app.kit.com/forms/9533551/subscriptions" method="post" @submit="submit"
+              class="flex flex-col sm:flex-row gap-3">
+          <label for="book-email-closing" class="sr-only">Email address</label>
+          <input id="book-email-closing" type="email" name="email_address" required autocomplete="email"
+                 placeholder="you@company.com"
+                 class="flex-1 min-w-0 font-arial text-[16px] md:text-[18px] leading-[1.4] px-5 py-3 rounded-md border border-transparent bg-white text-black placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-white/60 transition-shadow">
+          <button type="submit" :disabled="submitting"
+                  class="inline-flex items-center justify-center gap-2 bg-white hover:bg-neutral-200 disabled:opacity-60 disabled:cursor-not-allowed text-black font-arial font-semibold text-[18px] md:text-[20px] leading-[1.4] px-8 py-3 rounded-md transition-colors whitespace-nowrap">
+            <span x-text="submitting ? 'Sending…' : 'Send me the book'">Send me the book</span>
+          </button>
+        </form>
+        <div x-show="success" x-cloak class="rounded-md bg-white/10 px-4 py-3 text-left">
+          <p class="font-arial font-medium text-[16px] md:text-[18px] text-white">Check your inbox</p>
+          <p class="font-arial text-[15px] md:text-[16px] leading-[1.4] text-white/70 mt-0.5">Confirm your email and your copy of the book is on its way.</p>
+        </div>
+        <p x-show="error" x-cloak class="font-arial text-[14px] leading-[1.4] text-white">Something went wrong. Please try again.</p>
+        <p x-show="!success" class="font-arial text-[13px] md:text-[14px] leading-[1.4] text-white/70">No spam. Unsubscribe anytime.</p>
+      </div>
+    </div>
+    <div class="max-w-[1120px] w-full mx-auto px-6 md:px-10 pb-12">
+      <div class="border-t border-white/20 pt-12"></div>
+      <div id="footer-placeholder"></div>
+    </div>
+  </div>
   <script type="module" src="/scripts/main.js"></script>
 </body>
 </html>

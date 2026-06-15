@@ -11,8 +11,8 @@
         "url": "#talks-section"
       },
       {
-        "text": "About",
-        "url": "#value-props-section"
+        "text": "Book",
+        "url": "/book"
       }
     ],
     "ctaText": "Check availability"
@@ -40,43 +40,11 @@
   "talks": [
     {
       "id": 1,
-      "title": "Design systems without developers",
-      "description": "How to build production-grade design systems. No dedicated developer required. MCP, LLMs, and a systems mindset developed across 12 months of real client delivery. You leave with a working method, not a slide deck.",
-      "formats": [
-        "Workshop",
-        "Team session"
-      ],
-      "duration": "Half-day or full-day",
-      "audienceFit": "Best for: Engineering leads, Design managers, Product teams",
-      "tags": [
-        {
-          "text": "Workshop",
-          "tooltip": "Hands-on, interactive session format for teams.",
-          "tooltipIcon": ""
-        },
-        {
-          "text": "Team session",
-          "tooltip": "Designed for mid-size to large product teams.",
-          "tooltipIcon": ""
-        }
-      ],
-      "actions": {
-        "primary": "Bring me in for a team session"
-      },
-      "modal": {
-        "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M53.34 50.6625H50.68V53.34H32.0075V48.0025H48.0025V29.33H50.68V26.67H45.3425V5.3375H42.6825V23.9925H40.005V26.67H18.6725V23.9925H16.0125V26.67H0V50.6625H2.6775V48.0025H24.01V50.6625H26.67V48.0025H29.3475V50.6625H26.67V53.34H5.3375V56H56V32.0075H53.34V50.6625ZM21.35 45.325H2.6775V29.33H21.35V45.325ZM26.67 45.325V29.33H45.3425V45.325H26.67Z\" fill=\"#F24E1E\"/><path d=\"M50.68 29.33L53.34 29.33L53.34 32.0075H50.68L50.68 29.33Z\" fill=\"#F24E1E\"/><path d=\"M48.0025 48.0025L50.68 48.0025L50.68 50.6625L48.0025 50.6625L48.0025 48.0025Z\" fill=\"#F24E1E\"/><path d=\"M40.005 2.66H42.6825V5.3375H40.005V2.66Z\" fill=\"#F24E1E\"/><path d=\"M37.345 34.6675H40.005V37.3275H37.345V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M37.345 21.3325H40.005L40.005 23.9925L37.345 23.9925V21.3325Z\" fill=\"#F24E1E\"/><path d=\"M34.6675 32.0075H37.345L37.345 34.6675L34.6675 34.6675V32.0075Z\" fill=\"#F24E1E\"/><path d=\"M40.005 40.005H32.0075V37.3275H29.3475V42.665H42.6825V37.3275H40.005L40.005 40.005Z\" fill=\"#F24E1E\"/><path d=\"M32.0075 34.6675L34.6675 34.6675L34.6675 37.3275H32.0075L32.0075 34.6675Z\" fill=\"#F24E1E\"/><path d=\"M29.3475 5.3375H26.67V7.9975H24.01V5.3375H21.35V7.9975H18.6725V10.675H21.35V13.335H24.01V15.995H26.67V13.335H29.3475V10.675H32.0075V7.9975H29.3475V5.3375Z\" fill=\"#F24E1E\"/><path d=\"M37.345 21.3325V2.66H40.005L40.005 0H13.335V23.9925L16.0125 23.9925V21.3325L37.345 21.3325ZM16.0125 2.66H34.6675V18.6725H16.0125V2.66Z\" fill=\"#F24E1E\"/><path d=\"M13.335 34.6675H16.0125V40.005H13.335V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M8.015 32.0075H13.335V34.6675L8.015 34.6675V32.0075Z\" fill=\"#F24E1E\"/><path d=\"M8.015 40.005H13.335V42.665H8.015V40.005Z\" fill=\"#F24E1E\"/><path d=\"M5.3375 34.6675L8.015 34.6675V40.005H5.3375V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M2.6775 50.6625H5.3375L5.3375 53.34H2.6775L2.6775 50.6625Z\" fill=\"#F24E1E\"/></svg>",
-        "title": "Design systems without developers",
-        "description": "Great for internal design or engineering teams or bigger crowds of technical product folks. Straightforward. No fluff.",
-        "subtitle": "Frederick's team typically responds within 24 hours."
-      }
-    },
-    {
-      "id": 2,
-      "title": "From designers to design engineers",
-      "description": "EDL cut time-to-market by 48% by making one structural change: designers who ship code became the default. This is what we changed, what it cost us to figure out, and why your team can do it now.",
+      "title": "From handoffs to upstream",
+      "description": "Frederick's Figma Config 2026 keynote. How one studio closed the gap between design and code — turning designers into people who ship, and moving the whole team upstream to where the decisions get made.",
       "formats": [
         "Keynote",
-        "Leadership session"
+        "Conference talk"
       ],
       "duration": "20-60 min",
       "audienceFit": "Best for: Design leads, Engineering managers, Product teams",
@@ -87,23 +55,23 @@
           "tooltipIcon": ""
         },
         {
-          "text": "Leadership session",
-          "tooltip": "Ideal for founders and product leaders.",
+          "text": "Conference talk",
+          "tooltip": "A proven keynote, refined at Figma Config 2026.",
           "tooltipIcon": ""
         }
       ],
       "actions": {
-        "primary": "Let’s talk UX"
+        "primary": "Book this talk"
       },
       "modal": {
-        "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M52.0014 37.3275H54.6614V50.6625H52.0014V37.3275Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 50.6625L52.0014 50.6625L52.0014 53.34H49.3239V50.6625Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 34.6675H52.0014L52.0014 37.3275H49.3239V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M49.3239 10.6575H52.0014V18.6725H49.3239V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M46.6639 53.34H49.3239L49.3239 56H46.6639V53.34Z\" fill=\"#0D3DFF\"/><path d=\"M46.6639 31.99H49.3239L49.3239 34.6675L46.6639 34.6675V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M36.0064 29.33V18.6725H33.3289V31.99H46.6639L46.6639 29.33H36.0064Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 18.6725H49.3239V21.3325H41.3264V18.6725Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 7.9975H49.3239V10.6575L41.3264 10.6575V7.9975Z\" fill=\"#0D3DFF\"/><path d=\"M41.3264 34.6675H44.0039V42.665H41.3264V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M38.6664 10.6575L41.3264 10.6575V18.6725H38.6664V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M36.0064 0H38.6664V2.66H36.0064V0Z\" fill=\"#0D3DFF\"/><path d=\"M33.3289 34.6675H36.0064V42.665H33.3289V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M33.3289 2.66H36.0064L36.0064 5.3375H33.3289V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M27.9914 15.995H33.3289L33.3289 18.6725H27.9914V15.995Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 50.6625H27.9914V56H25.3314V50.6625Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 31.99H19.9939V34.6675H25.3314V40.005H27.9914L27.9914 18.6725H25.3314V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M25.3314 0H27.9914V5.3375H25.3314V0Z\" fill=\"#0D3DFF\"/><path d=\"M22.6714 48.0025H25.3314V50.6625L22.6714 50.6625V48.0025Z\" fill=\"#0D3DFF\"/><path d=\"M19.9939 45.325H22.6714V48.0025L19.9939 48.0025V45.325Z\" fill=\"#0D3DFF\"/><path d=\"M22.6714 10.6575H19.9939V18.6725H22.6714V15.995H25.3314V13.335H33.3289V10.6575H30.6689V7.9975H22.6714V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M17.3339 34.6675H19.9939V45.325L17.3339 45.325V34.6675Z\" fill=\"#0D3DFF\"/><path d=\"M17.3339 2.66H19.9939V5.3375H17.3339V2.66Z\" fill=\"#0D3DFF\"/><path d=\"M14.6739 0H17.3339V2.66H14.6739V0Z\" fill=\"#0D3DFF\"/><path d=\"M11.9964 31.99H14.6739V40.005H11.9964V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M11.9964 10.6575H14.6739V18.6725H11.9964V10.6575Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 40.005L11.9964 40.005L11.9964 42.665H3.99887V40.005Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 29.33H11.9964L11.9964 31.99L3.99887 31.99V29.33Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 18.6725H11.9964L11.9964 21.3325H3.99887V18.6725Z\" fill=\"#0D3DFF\"/><path d=\"M3.99887 7.9975H11.9964L11.9964 10.6575L3.99887 10.6575V7.9975Z\" fill=\"#0D3DFF\"/><path d=\"M1.33887 31.99L3.99887 31.99V40.005L1.33887 40.005V31.99Z\" fill=\"#0D3DFF\"/><path d=\"M1.33887 10.6575L3.99887 10.6575V18.6725H1.33887V10.6575Z\" fill=\"#0D3DFF\"/></svg>",
-        "title": "From designers to design engineers",
-        "description": "For teams that want to bridge the gap between design and engineering. Practical, not theoretical.",
+        "icon": "<svg width=\"56\" height=\"56\" viewBox=\"0 0 56 56\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M53.34 50.6625H50.68V53.34H32.0075V48.0025H48.0025V29.33H50.68V26.67H45.3425V5.3375H42.6825V23.9925H40.005V26.67H18.6725V23.9925H16.0125V26.67H0V50.6625H2.6775V48.0025H24.01V50.6625H26.67V48.0025H29.3475V50.6625H26.67V53.34H5.3375V56H56V32.0075H53.34V50.6625ZM21.35 45.325H2.6775V29.33H21.35V45.325ZM26.67 45.325V29.33H45.3425V45.325H26.67Z\" fill=\"#F24E1E\"/><path d=\"M50.68 29.33L53.34 29.33L53.34 32.0075H50.68L50.68 29.33Z\" fill=\"#F24E1E\"/><path d=\"M48.0025 48.0025L50.68 48.0025L50.68 50.6625L48.0025 50.6625L48.0025 48.0025Z\" fill=\"#F24E1E\"/><path d=\"M40.005 2.66H42.6825V5.3375H40.005V2.66Z\" fill=\"#F24E1E\"/><path d=\"M37.345 34.6675H40.005V37.3275H37.345V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M37.345 21.3325H40.005L40.005 23.9925L37.345 23.9925V21.3325Z\" fill=\"#F24E1E\"/><path d=\"M34.6675 32.0075H37.345L37.345 34.6675L34.6675 34.6675V32.0075Z\" fill=\"#F24E1E\"/><path d=\"M40.005 40.005H32.0075V37.3275H29.3475V42.665H42.6825V37.3275H40.005L40.005 40.005Z\" fill=\"#F24E1E\"/><path d=\"M32.0075 34.6675L34.6675 34.6675L34.6675 37.3275H32.0075L32.0075 34.6675Z\" fill=\"#F24E1E\"/><path d=\"M29.3475 5.3375H26.67V7.9975H24.01V5.3375H21.35V7.9975H18.6725V10.675H21.35V13.335H24.01V15.995H26.67V13.335H29.3475V10.675H32.0075V7.9975H29.3475V5.3375Z\" fill=\"#F24E1E\"/><path d=\"M37.345 21.3325V2.66H40.005L40.005 0H13.335V23.9925L16.0125 23.9925V21.3325L37.345 21.3325ZM16.0125 2.66H34.6675V18.6725H16.0125V2.66Z\" fill=\"#F24E1E\"/><path d=\"M13.335 34.6675H16.0125V40.005H13.335V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M8.015 32.0075H13.335V34.6675L8.015 34.6675V32.0075Z\" fill=\"#F24E1E\"/><path d=\"M8.015 40.005H13.335V42.665H8.015V40.005Z\" fill=\"#F24E1E\"/><path d=\"M5.3375 34.6675L8.015 34.6675V40.005H5.3375V34.6675Z\" fill=\"#F24E1E\"/><path d=\"M2.6775 50.6625H5.3375L5.3375 53.34H2.6775L2.6775 50.6625Z\" fill=\"#F24E1E\"/></svg>",
+        "title": "From handoffs to upstream",
+        "description": "The Config keynote, adapted for your event. Grounded in real production work — practical, not theoretical.",
         "subtitle": "Frederick's team typically responds within 24 hours."
       }
     },
     {
-      "id": 3,
+      "id": 2,
       "title": "From conversation to commit",
       "description": "The best product teams aren't doing more research. They're closing the loop faster. This talk is about building a research-first practice where AI compresses the distance between insight and implementation.",
       "formats": [
@@ -222,7 +190,7 @@
     },
     "talksPreview": {
       "title": "What Frederick speaks on",
-      "customTalkText": "Have a specific topic in mind? Frederick tailors talks to your team's challenges.",
+      "customTalkText": "Have a specific topic in mind?",
       "customTalkCta": "Send a request"
     }
   },
@@ -245,26 +213,113 @@
     "subtitle": "Available for conferences, workshops, and team sessions globally."
   },
   "bookPage": {
-    "title": "The Design Engineering Gap",
-    "subtitle": "A practical guide to closing the space between design and code.",
+    "eyebrow": "Free book",
+    "title": "Design Engineering",
+    "subtitle": "The leadership playbook for moving your team upstream.",
     "pitch": [
-      "Most teams treat design and engineering as two separate worlds. One side pushes pixels, the other ships code. The result? Broken handoffs, design drift, and systems that don't scale.",
-      "This book is a practical guide for anyone who wants to close that gap. It's built on real production work — not theory — and covers how to think about design systems as engineering artifacts, how to structure cross-functional teams, and how to ship design that actually survives contact with code."
+      "For years we watched good design fall apart in the handoff. By the time it shipped, the intent was gone. So we changed how we work. We taught our designers to ship production code, and we moved the whole team upstream, closer to where the real decisions get made."
     ],
+    "form": {
+      "heading": "Get your free copy",
+      "note": "Enter your email and I'll send the book straight to your inbox.",
+      "placeholder": "you@company.com",
+      "buttonText": "Send me the book",
+      "submittingText": "Sending…",
+      "successHeading": "Check your inbox",
+      "successText": "Confirm your email and your copy of the book is on its way.",
+      "errorText": "Something went wrong. Please try again.",
+      "trust": "Six short chapters. No spam. Unsubscribe anytime.",
+      "formId": "4b9b1ff8d2"
+    },
+    "quote": {
+      "text": "Own what the user uses. Not the file that describes it.",
+      "attribution": "Chapter One"
+    },
+    "benefits": {
+      "title": "What you'll take away",
+      "items": [
+        {
+          "title": "The one bet that works",
+          "description": "Don't try to change the whole team at once. Pick one person. Build the right conditions around them. Then let what they become do the convincing. The exact method, step by step."
+        },
+        {
+          "title": "A team that works upstream",
+          "description": "Whoever ships the code is upstream. Learn how to move designers from handing things off to making the calls that stick, now that AI has lowered the bar to code."
+        },
+        {
+          "title": "Work that's priced differently",
+          "description": "Design engineering changes what you sell. Now you get measured against hiring, not against other designers. Plus the one sentence that turns the room."
+        }
+      ]
+    },
+    "gallery": {
+      "title": "A look inside",
+      "subtitle": "Spreads and diagrams from the book.",
+      "items": [
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        },
+        {
+          "url": "",
+          "alt": "",
+          "caption": ""
+        }
+      ]
+    },
+    "tocTitle": "What's inside",
+    "tocIntro": "Six chapters. One year of real client work, distilled into a playbook you can start on Monday.",
     "toc": [
-      "The Gap Nobody Talks About",
-      "Design Systems as Engineering Artifacts",
-      "AI-Driven Design: From Prototype to Production",
-      "Structuring Cross-Functional Teams",
-      "The MCP and LLM Toolkit for Designers",
-      "Shipping Design That Scales",
-      "Case Studies from the Field"
+      {
+        "title": "What Design Engineering Actually Is",
+        "summary": "A design studio that doesn't own the code doesn't own the work. Not anymore."
+      },
+      {
+        "title": "The Better Work",
+        "summary": "The creative case: why the products are genuinely better, not just more valuable."
+      },
+      {
+        "title": "The Skill Stack",
+        "summary": "You don't need to become a developer. You need to stop being afraid of the work."
+      },
+      {
+        "title": "The Operational Shift",
+        "summary": "Most teams don't fail on vision. They fail on the Monday morning stuff."
+      },
+      {
+        "title": "Repositioning Your Value",
+        "summary": "The problem isn't how you're selling. It's what you're selling."
+      },
+      {
+        "title": "The Six Month Roadmap",
+        "summary": "Find the one move that makes every other move easier."
+      }
     ],
-    "downloadUrl": "/the-design-engineering-gap.pdf",
-    "downloadCtaText": "Download free book",
+    "closingCta": {
+      "heading": "Move your team upstream",
+      "subheading": "Get the playbook free, straight to your inbox."
+    },
+    "authorBio": "Frederick runs EDL, a small design studio in Copenhagen. He writes and talks about design, engineering, and how teams build better products. He thinks the best work happens when the people who design it also build it.",
     "endorsements": [],
     "coverImage": {
-      "placeholder": "Book cover — The Design Engineering Gap by Frederick Andersen"
+      "url": "/images/book-cover.jpg",
+      "alt": "Design Engineering: The Leadership Playbook for Moving Your Team Upstream by Frederick Andersen"
     }
   },
   "aboutPage": {
@@ -273,7 +328,7 @@
       "Frederick Andersen is the founder of EDL, a design studio in Copenhagen that builds AI-driven design systems for technical product teams.",
       "He sits at the intersection of design, engineering, and product strategy — a space where most speakers don't operate. His work is grounded in real production systems, not conference-circuit theory.",
       "Before founding EDL, Frederick worked across product design, front-end engineering, and design systems at scale. He's advised teams at startups and enterprises on how to structure design that actually ships.",
-      "Frederick speaks globally on AI design systems, UX strategy, and design engineering. He's the author of The Design Engineering Gap and is speaking at Figma Config 2026."
+      "Frederick speaks globally on AI design systems, UX strategy, and design engineering. He's the author of Design Engineering: The Leadership Playbook for Moving Your Team Upstream and is speaking at Figma Config 2026."
     ],
     "philosophy": "Frederick's talks are built the same way he builds products: with a systems mindset, zero fluff, and a focus on what actually works in production. Every session is grounded in real work — not slides full of theory. He tailors content to the room and leaves teams with tools they can use the next day.",
     "studioDescription": "EDL is a design studio that builds AI-driven design systems for technical product teams. Based in Copenhagen, EDL works with startups and scale-ups to create systems that scale.",
