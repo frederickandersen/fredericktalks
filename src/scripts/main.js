@@ -35,6 +35,18 @@ async function loadContent() {
 
     // Populate page-specific content
     populateContent()
+
+    // If we arrived with a hash (e.g. /#talks-section from another page),
+    // scroll to it after content is injected and fonts have loaded so the
+    // position is accurate (avoids landing short due to late layout shifts).
+    if (window.location.hash) {
+      const scrollToHash = () => {
+        const target = document.querySelector(window.location.hash)
+        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      }
+      const fontsReady = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve()
+      fontsReady.then(() => requestAnimationFrame(scrollToHash))
+    }
   } catch (error) {
     console.error('Error loading content:', error)
   }
@@ -61,7 +73,9 @@ function injectNavigation() {
 
   function smoothScrollLink(href) {
     if (href.startsWith('#')) {
-      return `href="${href}" onclick="event.preventDefault(); document.querySelector('${href}')?.scrollIntoView({ behavior: 'smooth', block: 'start' })"`
+      // Smooth-scroll when the target is on the current page; otherwise fall back to
+      // the home page with the hash (e.g. clicking "Talks" from the book page).
+      return `href="/${href}" onclick="var el=document.querySelector('${href}'); if (el) { event.preventDefault(); el.scrollIntoView({ behavior: 'smooth', block: 'start' }) }"`
     }
     return `href="${href}"`
   }
