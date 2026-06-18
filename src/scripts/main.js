@@ -453,11 +453,6 @@ function initGalleryMarquee(track, setSize) {
     : new Promise(res => { img.addEventListener('load', res, { once: true }); img.addEventListener('error', res, { once: true }) })
   )).then(run)
 
-  const wrap = track.closest('.book-marquee')
-  if (wrap) {
-    wrap.addEventListener('mouseenter', () => { if (anim) anim.pause() })
-    wrap.addEventListener('mouseleave', () => { if (anim) anim.play() })
-  }
   let resizeTimer
   window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(run, 200) }, { passive: true })
 }
