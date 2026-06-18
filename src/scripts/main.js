@@ -503,7 +503,7 @@ function populateBookPage() {
     if (galleryContainer && bp.gallery.items) {
       // Uniform height; width follows each image's natural aspect ratio, so
       // portrait images render portrait and landscape images render landscape.
-      const slideHeight = 'h-[320px] sm:h-[460px] lg:h-[680px]'
+      const slideHeight = 'h-[380px] sm:h-[540px] lg:h-[780px]'
       const buildSlide = (item, i, clone) => {
         const inner = item && item.url
           ? `<img src="${item.url}" alt="${clone ? '' : (item.alt || '')}" class="${slideHeight} w-auto object-cover bg-gray-200" loading="eager" decoding="async">`
