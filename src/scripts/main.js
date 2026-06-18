@@ -472,7 +472,13 @@ function populateBookPage() {
   setText('book-page-title', bp.title)
   setText('book-page-subtitle', bp.subtitle)
   setText('book-toc-title', bp.tocTitle)
-  setText('book-author-bio', bp.authorBio)
+  const bioEl = document.getElementById('book-author-bio')
+  if (bioEl && bp.authorBio) {
+    bioEl.innerHTML = bp.authorBio.replace(
+      'EDL',
+      '<a href="https://edl.dk" target="_blank" rel="noopener noreferrer" class="underline decoration-solid decoration-[1px] underline-offset-[3px] decoration-skip-ink-none hover:opacity-70 transition-opacity">EDL</a>'
+    )
+  }
 
   // Cover image
   const cover = document.getElementById('book-cover-image')
