@@ -419,6 +419,49 @@ function populateTalksPage() {
 
 // ── Book Page ───────────────────────────────────────────────────────
 
+// Drives the "A look inside" carousel: an infinite, seamless left-scroll that
+// starts with the first image centered on screen. The track holds three sets
+// (lead clones / real / trailing clones); we offset it so the first real image
+// is centered, then animate by exactly one set width for a seamless loop.
+function initGalleryMarquee(track, setSize) {
+  if (!track || !setSize) return
+  // Respect reduced motion: leave the CSS fallback (no animation, manual scroll).
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+
+  track.style.animation = 'none' // disable the CSS marquee; we drive it via WAAPI
+  const SPEED = 110 // px per second
+  let anim = null
+
+  const run = () => {
+    if (anim) { anim.cancel(); anim = null }
+    const figs = track.querySelectorAll('figure')
+    if (figs.length < setSize * 3) return
+    const first = figs[setSize]        // first image of the real (middle) set
+    const next = figs[setSize * 2]     // same image, one set later
+    const period = next.offsetLeft - first.offsetLeft
+    if (period <= 0) return
+    const center = window.innerWidth / 2 - first.offsetWidth / 2 - first.offsetLeft
+    anim = track.animate(
+      [{ transform: `translateX(${center}px)` }, { transform: `translateX(${center - period}px)` }],
+      { duration: (period / SPEED) * 1000, iterations: Infinity, easing: 'linear' }
+    )
+  }
+
+  const imgs = [...track.querySelectorAll('img')]
+  Promise.all(imgs.map(img => (img.complete && img.naturalWidth)
+    ? Promise.resolve()
+    : new Promise(res => { img.addEventListener('load', res, { once: true }); img.addEventListener('error', res, { once: true }) })
+  )).then(run)
+
+  const wrap = track.closest('.book-marquee')
+  if (wrap) {
+    wrap.addEventListener('mouseenter', () => { if (anim) anim.pause() })
+    wrap.addEventListener('mouseleave', () => { if (anim) anim.play() })
+  }
+  let resizeTimer
+  window.addEventListener('resize', () => { clearTimeout(resizeTimer); resizeTimer = setTimeout(run, 200) }, { passive: true })
+}
+
 function populateBookPage() {
   const bp = siteContent.bookPage
   if (!bp) return
@@ -458,18 +501,26 @@ function populateBookPage() {
     setText('book-gallery-subtitle', bp.gallery.subtitle)
     const galleryContainer = document.getElementById('book-gallery')
     if (galleryContainer && bp.gallery.items) {
+      // Uniform height; width follows each image's natural aspect ratio, so
+      // portrait images render portrait and landscape images render landscape.
+      const slideHeight = 'h-[320px] sm:h-[460px] lg:h-[680px]'
       const buildSlide = (item, i, clone) => {
         const inner = item && item.url
-          ? `<img src="${item.url}" alt="${clone ? '' : (item.alt || '')}" class="w-full h-full object-cover" loading="lazy" decoding="async">`
-          : `<div class="w-full h-full flex items-center justify-center bg-gray-200 text-gray-400 font-arial text-[16px] md:text-[18px]">Image ${i + 1}</div>`
-        return `<figure class="shrink-0 w-[440px] sm:w-[680px] lg:w-[920px]"${clone ? ' aria-hidden="true"' : ''}>
-          <div class="aspect-video w-full overflow-hidden rounded-lg bg-gray-200">${inner}</div>
+          ? `<img src="${item.url}" alt="${clone ? '' : (item.alt || '')}" class="${slideHeight} w-auto object-cover bg-gray-200" loading="eager" decoding="async">`
+          : `<div class="${slideHeight} aspect-video flex items-center justify-center bg-gray-200 text-gray-400 font-arial text-[16px] md:text-[18px]">Image ${i + 1}</div>`
+        return `<figure class="shrink-0"${clone ? ' aria-hidden="true"' : ''}>
+          ${inner}
           ${item && item.caption ? `<figcaption class="font-arial text-[14px] md:text-[15px] leading-[1.4] text-gray-500 mt-3">${item.caption}</figcaption>` : ''}
         </figure>`
       }
-      const originals = bp.gallery.items.map((item, i) => buildSlide(item, i, false)).join('')
-      const clones = bp.gallery.items.map((item, i) => buildSlide(item, i, true)).join('')
-      galleryContainer.innerHTML = originals + clones
+      // Three sets: a leading clone set keeps the left filled when the strip
+      // is offset so the first image can start centered, then the real set,
+      // then a trailing clone set for the seamless loop.
+      const lead = bp.gallery.items.map((item, i) => buildSlide(item, i, true)).join('')
+      const real = bp.gallery.items.map((item, i) => buildSlide(item, i, false)).join('')
+      const trail = bp.gallery.items.map((item, i) => buildSlide(item, i, true)).join('')
+      galleryContainer.innerHTML = lead + real + trail
+      initGalleryMarquee(galleryContainer, bp.gallery.items.length)
     }
   }
 

@@ -256,31 +256,12 @@
       "title": "A look inside",
       "subtitle": "Spreads and diagrams from the book.",
       "items": [
-        {
-          "url": "",
-          "alt": "",
-          "caption": ""
-        },
-        {
-          "url": "",
-          "alt": "",
-          "caption": ""
-        },
-        {
-          "url": "",
-          "alt": "",
-          "caption": ""
-        },
-        {
-          "url": "",
-          "alt": "",
-          "caption": ""
-        },
-        {
-          "url": "",
-          "alt": "",
-          "caption": ""
-        }
+        { "url": "/images/mockup-1.jpg", "alt": "A sneak peek of what to expect.", "caption": "" },
+        { "url": "/images/mockup-2.jpg", "alt": "A sneak peek of what to expect.", "caption": "" },
+        { "url": "/images/mockup-3.jpg", "alt": "A sneak peek of what to expect.", "caption": "" },
+        { "url": "/images/mockup-4.jpg", "alt": "A sneak peek of what to expect.", "caption": "" },
+        { "url": "/images/mockup-5.jpg", "alt": "A sneak peek of what to expect.", "caption": "" },
+        { "url": "/images/mockup-6.jpg", "alt": "A sneak peek of what to expect.", "caption": "" }
       ]
     },
     "tocTitle": "What's inside",
